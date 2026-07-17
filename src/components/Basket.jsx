@@ -1,7 +1,11 @@
 import { BasketItem } from "./BasketItem";
 
-function Basket(props) {
-  const { order, setShow, delItem, incrementItem, decrementItem } = props;
+import { useContext } from "react";
+
+import { ShopContext } from "../context";
+
+function Basket() {
+  const { order, toggleBasket } = useContext(ShopContext);
 
   const totalPrice = order.reduce((sum, el) => {
     return sum + el.price * el.quantity;
@@ -13,7 +17,7 @@ function Basket(props) {
         <li className="px-4 py-3 bg-indigo-50 border-gray-100 flex justify-between items-center">
           <span>Корзина</span>
           <button
-            onClick={() => setShow(false)}
+            onClick={() => toggleBasket()}
             className="text-gray-500 cursor-pointer  hover:text-gray-700 hover:bg-gray-200 rounded-full w-7 h-7 flex items-center justify-center transition-colors"
           >
             ✕
@@ -21,15 +25,7 @@ function Basket(props) {
         </li>
         {order.length ? (
           order.map((item) => {
-            return (
-              <BasketItem
-                key={item.id}
-                {...item}
-                delItem={delItem}
-                incrementItem={incrementItem}
-                decrementItem={decrementItem}
-              />
-            );
+            return <BasketItem key={item.id} {...item} />;
           })
         ) : (
           <BasketItem title={"Корзина пуста"} />

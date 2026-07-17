@@ -6,55 +6,13 @@ import { Cart } from "./components/Cart";
 
 import { Basket } from "./components/Basket";
 
-import { useState, useEffect } from "react";
 import { API_URL } from "./config";
 
-function App() {
-  const [goods, setGoods] = useState([]);
-  //   const [loading, setLoading] = useState(true);
-  const [order, setOrder] = useState([]);
-  const [showBasket, setShowBasket] = useState(false);
+import { useEffect, useContext } from "react";
+import { ContextProvider, ShopContext } from "./context";
 
-  const incrementItem = (id) => {
-    const newOrder = order.map((el) => {
-      return el.id === id ? { ...el, quantity: el.quantity + 1 } : el;
-    });
-
-    setOrder(newOrder);
-  };
-  const decrementItem = (id) => {
-    const item = order.find((el) => el.id === id);
-
-    if (item.quantity > 1) {
-      setOrder(
-        order.map((el) =>
-          el.id === id ? { ...el, quantity: el.quantity - 1 } : el,
-        ),
-      );
-    } else {
-      delItem(id);
-    }
-  };
-
-  const delItem = (id) => {
-    const filtredOrder = order.filter((el) => el.id != id);
-    setOrder(filtredOrder);
-  };
-
-  const addToBasket = (item) => {
-    const existingIndex = order.findIndex((el) => el.id === item.id);
-
-    if (existingIndex === -1) {
-      setOrder([...order, { ...item, quantity: 1 }]);
-      return;
-    }
-
-    setOrder(
-      order.map((el, i) =>
-        i === existingIndex ? { ...el, quantity: el.quantity + 1 } : el,
-      ),
-    );
-  };
+function AppContent() {
+  const { goods, showBasket, setGoods } = useContext(ShopContext);
 
   useEffect(() => {
     fetch(API_URL)
@@ -65,20 +23,19 @@ function App() {
   return (
     <>
       <Header />
-      {showBasket ? (
-        <Basket
-          incrementItem={incrementItem}
-          decrementItem={decrementItem}
-          delItem={delItem}
-          order={order}
-          setShow={setShowBasket}
-        />
-      ) : null}
-
-      <Cart setShow={setShowBasket} state={showBasket} order={order.length} />
-      <Shop goods={goods} addToBasket={addToBasket} />
+      {showBasket ? <Basket /> : null}
+      <Cart />
+      <Shop goods={goods} />
       <Footer />
     </>
+  );
+}
+
+function App() {
+  return (
+    <ContextProvider>
+      <AppContent />
+    </ContextProvider>
   );
 }
 

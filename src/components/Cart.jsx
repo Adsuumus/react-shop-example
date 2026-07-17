@@ -1,12 +1,12 @@
-import { useState } from "react";
+import { useEffect, useContext } from "react";
+import { ContextProvider, ShopContext } from "../context";
 
-function Cart(props) {
-  const { order, setShow, state } = props;
-
+function Cart() {
+  const { toggleBasket, order } = useContext(ShopContext);
   return (
     <div className="fixed top-20 right-12 z-40">
       <button
-        onClick={() => setShow(!state)}
+        onClick={() => toggleBasket()}
         className="relative cursor-pointer bg-blue-600 hover:bg-blue-700 text-white p-3 rounded-full shadow-lg transition"
       >
         <svg
@@ -24,7 +24,7 @@ function Cart(props) {
         </svg>
 
         <span className="absolute -top-1 -right-1 bg-red-500 text-white text-xs w-5 h-5 flex items-center justify-center rounded-full">
-          {order}
+          {order.length}
         </span>
       </button>
     </div>

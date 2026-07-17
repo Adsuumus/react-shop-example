@@ -1,12 +1,9 @@
-function BasketItem({
-  id,
-  title,
-  price,
-  quantity,
-  delItem,
-  incrementItem,
-  decrementItem,
-}) {
+import { useContext } from "react";
+import { ShopContext } from "../context";
+
+function BasketItem({ id = 0, title = 0, price = 0, quantity = 0 }) {
+  const { delItem, incrementItem, decrimentItem } = useContext(ShopContext);
+
   return (
     <li className="px-4 py-3 bg-white border-gray-100 flex justify-between items-center">
       <div className="flex items-center gap-3 min-w-0">
@@ -14,7 +11,7 @@ function BasketItem({
         {quantity ? (
           <div className="flex items-center bg-gray-100 rounded-lg flex-shrink-0">
             <button
-              onClick={() => decrementItem(id)}
+              onClick={() => decrimentItem(id)}
               className="w-8 h-8 flex items-center justify-center text-gray-600 hover:text-black hover:bg-gray-200 rounded-l-lg transition-colors cursor-pointer text-lg "
             >
               −

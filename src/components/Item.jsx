@@ -1,11 +1,15 @@
+import { useContext } from "react";
+import { ShopContext } from "../context";
+
 function Item({
   mainId: id,
   displayName: title,
   displayDescription: description,
   price: { regularPrice: price },
   displayAssets: [{ full_background: img }],
-  addToBasket = Function.prototype,
 }) {
+  const { addItem } = useContext(ShopContext);
+
   return (
     <div className="bg-gray-800 hover:ring-2 hover:ring-blue-500 transition rounded-lg overflow-hidden relative">
       <img
@@ -24,7 +28,7 @@ function Item({
           {price}&nbsp;₽
         </span>
         <button
-          onClick={() => addToBasket({ id, title, price })}
+          onClick={() => addItem({ id, title, price })}
           className="cursor-pointer bg-blue-600 hover:bg-blue-700 text-white px-4 py-1.5 rounded text-sm"
         >
           Купить
