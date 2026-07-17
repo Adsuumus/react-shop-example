@@ -9,7 +9,7 @@ function Item({
   return (
     <div className="bg-gray-800 hover:ring-2 hover:ring-blue-500 transition rounded-lg overflow-hidden relative">
       <img
-        src={img}
+        src={`${import.meta.env.BASE_URL}${img}`}
         alt={title}
         className="w-full h-55 object-cover object-top"
       />
