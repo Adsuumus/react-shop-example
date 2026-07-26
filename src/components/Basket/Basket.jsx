@@ -2,7 +2,7 @@ import { BasketItem } from "./BasketItem";
 
 import { useContext } from "react";
 
-import { ShopContext } from "../context";
+import { ShopContext } from "../../context";
 
 function Basket() {
   const { order, toggleBasket } = useContext(ShopContext);
@@ -32,7 +32,7 @@ function Basket() {
         )}
 
         <li className="px-4 py-3 bg-indigo-50">
-          Общая стоимость: {totalPrice}
+          Общая стоимость: {totalPrice} руб.
         </li>
       </ul>
     </div>
