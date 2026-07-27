@@ -1,5 +1,5 @@
 import { Header, Footer } from "../components";
-import { Outlet } from "react-router-dom";
+import { Outlet, ScrollRestoration } from "react-router-dom";
 
 import { useContext } from "react";
 import { ShopContext } from "../context";
@@ -11,8 +11,8 @@ function Layout() {
 
   return (
     <>
+      <ScrollRestoration />
       {showBasket ? <Basket /> : null}
-
       <Header />
       <Outlet />
       <Footer />

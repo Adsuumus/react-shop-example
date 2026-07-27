@@ -1,72 +1,85 @@
-import { useContext } from "react";
+import { useContext, useLayoutEffect, useState } from "react";
 import { ShopContext } from "../context";
 
 import { Link } from "react-router-dom";
 
-function Item({
-  mainId: id,
-  displayName: title,
-  displayDescription: description,
-  price: { regularPrice: price },
-  displayAssets: [{ full_background: img }],
-}) {
-  const { addItem, delItem, incrementItem, decrimentItem, order } =
+function Item({ id, title, description, price, image, colors }) {
+  const { addItem, incrementItem, decrimentItem, order } =
     useContext(ShopContext);
+  const [isInitialBlock, setIsInitialBlock] = useState(false);
 
   const item = order.find((product) => product.id === id);
   const haveItem = !!item;
 
+  useLayoutEffect(() => {
+    if (haveItem) {
+      setIsInitialBlock(true);
+      const timer = setTimeout(() => setIsInitialBlock(false), 200);
+      return () => clearTimeout(timer);
+    }
+  }, [haveItem]);
+
   return (
     <div className="flex flex-col h-full relative">
-      <div className="bg-gray-800 hover:ring-2 hover:ring-blue-500 transition rounded-lg overflow-hidden relative flex-1">
+      <div
+        style={{
+          backgroundColor: `color-mix(in srgb, #${colors.textBackgroundColor.substring(0, 6)} 20%, #1f2937 60%)`,
+        }}
+        className="hover:ring-2 hover:ring-blue-500 transition rounded-lg overflow-hidden relative flex-1"
+      >
         <Link to={`/product/${id}`}>
           <img
-            src={`${import.meta.env.BASE_URL}${img}`}
+            src={image}
             alt={title}
-            className="w-full h-55 object-cover object-top"
+            className="w-full h-auto object-contain"
           />
-
-          <div className="p-5 pb-12">
+        </Link>
+        <div className="p-5 pb-12">
+          <Link to={`/product/${id}`}>
             <h2 className="text-lg text-white font-semibold mb-1">{title}</h2>
+          </Link>
 
+          <Link to={`/product/${id}`}>
             <div className="flex items-center gap-2 text-sm text-gray-400">
               <span>{description}</span>
             </div>
-          </div>
-        </Link>
+          </Link>
+        </div>
       </div>
 
-      <div className="absolute -bottom-5 -translate-x-1/2 left-1/2 flex flex-col items-center gap-1 px-4 py-2">
-        <span className="uppercase text-xs px-3 py-1 bg-gray-700 rounded text-white">
+      <div className="absolute -bottom-5 left-1/2 -translate-x-1/2 flex flex-col items-center gap-1 px-4 py-2">
+        <span className="uppercase text-xs px-3 py-1 bg-gray-700 rounded text-white whitespace-nowrap">
           {price}&nbsp;₽
         </span>
-
-        {haveItem ? (
-          <div className="flex items-center gap-2 bg-gray-700 rounded">
+        <div className="w-[100px] h-8">
+          {haveItem ? (
+            <div className="flex bg-gray-700 rounded h-full">
+              <button
+                disabled={isInitialBlock}
+                onClick={() => decrimentItem(id)}
+                className="cursor-pointer flex-1 hover:bg-gray-600 rounded-l transition-colors text-white font-bold text-lg hover:scale-105"
+              >
+                −
+              </button>
+              <span className="w-8 flex-shrink-0 text-white font-medium text-center self-center">
+                {item.quantity || 1}
+              </span>
+              <button
+                onClick={() => incrementItem(id)}
+                className="cursor-pointer flex-1 hover:bg-gray-600 rounded-r transition-colors text-white font-bold text-lg hover:scale-102"
+              >
+                +
+              </button>
+            </div>
+          ) : (
             <button
-              onClick={() => decrimentItem(id)}
-              className="cursor-pointer w-8 h-8 flex items-center justify-center hover:bg-gray-600 rounded-l transition-colors text-white font-bold"
+              onClick={() => addItem({ id, title, price })}
+              className="cursor-pointer w-full h-full bg-blue-600 hover:bg-blue-700 text-white rounded text-sm transition-colors font-medium"
             >
-              −
+              Купить
             </button>
-            <span className="text-white font-medium w-6 text-center">
-              {item.quantity}
-            </span>
-            <button
-              onClick={() => incrementItem(id)}
-              className="cursor-pointer w-8 h-8 flex items-center justify-center hover:bg-gray-600 rounded-r transition-colors text-white font-bold"
-            >
-              +
-            </button>
-          </div>
-        ) : (
-          <button
-            onClick={() => addItem({ id, title, price })}
-            className="cursor-pointer bg-blue-600 hover:bg-blue-700 text-white px-6 py-1.5 rounded text-sm transition-colors font-medium"
-          >
-            Купить
-          </button>
-        )}
+          )}
+        </div>
       </div>
     </div>
   );

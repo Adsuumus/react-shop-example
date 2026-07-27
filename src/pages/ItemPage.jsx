@@ -16,14 +16,14 @@ function ItemPage() {
         ) : (
           <>
             <h1 className="text-4xl font-bold mb-6 text-blue-400">
-              {item.displayName}
+              {item.title}
             </h1>
             <div className="space-y-4 text-gray-300 text-lg leading-relaxed">
-              <p>Цена: {item.price.regularPrice} ₽</p>
-              <p>{item.displayDescription}</p>
+              <p>Цена: {item.price} ₽</p>
+              <p>{item.description}</p>
               <img
-                src={`${import.meta.env.BASE_URL}${item.displayAssets[0].full_background}`}
-                alt={item.displayName}
+                src={item.image}
+                alt={item.title}
                 className="max-w-full h-auto"
               />
             </div>

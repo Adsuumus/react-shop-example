@@ -1,148 +1,1202 @@
 {
   "shop": [
     {
-      "mainId": "item-1",
-      "displayName": "Плазменная винтовка",
-      "displayDescription": "Энергетическое оружие с высокой скоростью стрельбы и точностью.",
-      "price": { "regularPrice": 1200 },
-      "displayAssets": [
-        {
-          "full_background": "/images/item-1.svg",
-          "background": "/images/item-1.svg"
-        }
-      ]
+      "id": "SummerIceSpiceSpongebob_822_24",
+      "title": "Золотая лопатка",
+      "description": "Тот, кто достанет её из гущи жира...",
+      "price": 500,
+      "image": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/6d526624567bcdf7/renderimage_0.png",
+      "colors": {
+        "color1": "003c51ff",
+        "color2": "9200ffff",
+        "color3": "2bcdf7ff",
+        "textBackgroundColor": "003c51ff"
+      }
     },
     {
-      "mainId": "item-2",
-      "displayName": "Щит бури",
-      "displayDescription": "Защитный артефакт, поглощающий урон от любых стихий.",
-      "price": { "regularPrice": 800 },
-      "displayAssets": [
-        {
-          "full_background": "/images/item-2.svg",
-          "background": "/images/item-2.svg"
-        }
-      ]
+      "id": "SummerBatman_684_666",
+      "title": "Цветастая бита",
+      "description": "Уж ей отдых не светит.",
+      "price": 500,
+      "image": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/917aa7e125549189/renderimage_0.png",
+      "colors": {
+        "color1": "5fc9f1ff",
+        "color3": "ffe4a5ff",
+        "textBackgroundColor": "577a7bff"
+      }
     },
     {
-      "mainId": "item-3",
-      "displayName": "Теневой плащ",
-      "displayDescription": "Делает владельца невидимым в тёмное время суток.",
-      "price": { "regularPrice": 1500 },
-      "displayAssets": [
-        {
-          "full_background": "/images/item-3.svg",
-          "background": "/images/item-3.svg"
-        }
-      ]
+      "id": "SummerIceSpiceSpongebob_517_145",
+      "title": "Песочный микрофон",
+      "description": "Лучше всего подходит для песен Патрика.",
+      "price": 800,
+      "image": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/1e5c538d9e23a55c/renderimage_0.png",
+      "colors": {
+        "color1": "003c51ff",
+        "color2": "9200ffff",
+        "color3": "2bcdf7ff",
+        "textBackgroundColor": "003c51ff"
+      }
     },
     {
-      "mainId": "item-4",
-      "displayName": "Топор грома",
-      "displayDescription": "Мощный боевой топор, заряженный молнией.",
-      "price": { "regularPrice": 950 },
-      "displayAssets": [
-        {
-          "full_background": "/images/item-4.svg",
-          "background": "/images/item-4.svg"
-        }
-      ]
+      "id": "FND072626_726_434",
+      "title": "Консервный плеер",
+      "description": "Долговечный носитель.",
+      "price": 400,
+      "image": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/62333d8cbaaef3f2/renderimage_0.png",
+      "colors": {
+        "color1": "616e6fff",
+        "color2": "000000ff",
+        "color3": "494f5aff",
+        "textBackgroundColor": "3a4044ff"
+      }
     },
     {
-      "mainId": "item-5",
-      "displayName": "Клинок пустоты",
-      "displayDescription": "Клинок из тёмной материи, пронзающий любую броню.",
-      "price": { "regularPrice": 2000 },
-      "displayAssets": [
-        {
-          "full_background": "/images/item-5.svg",
-          "background": "/images/item-5.svg"
-        }
-      ]
+      "id": "SummerIceSpiceSpongebob_104_649",
+      "title": "Crocs Classic Clog «Патрик»",
+      "description": "Ловите завистливые взгляды!",
+      "price": 1000,
+      "image": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/669d8a03aa46fa85/renderimage_0.png",
+      "colors": {
+        "color1": "003c51ff",
+        "color2": "9200ffff",
+        "color3": "2bcdf7ff",
+        "textBackgroundColor": "003c51ff"
+      }
     },
     {
-      "mainId": "item-6",
-      "displayName": "Ледяной лук",
-      "displayDescription": "Замораживает цели при попадании. Стрелы бесконечны.",
-      "price": { "regularPrice": 1100 },
-      "displayAssets": [
-        {
-          "full_background": "/images/item-6.svg",
-          "background": "/images/item-6.svg"
-        }
-      ]
+      "id": "SummerBatman_792_362",
+      "title": "Кусачее растение",
+      "description": "Опасно не только для мух.",
+      "price": 800,
+      "image": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/6353c889cdabcac7/renderimage_0.png",
+      "colors": {
+        "color1": "f86b71ff",
+        "color3": "ffa9a5ff",
+        "textBackgroundColor": "784042ff"
+      }
     },
     {
-      "mainId": "item-7",
-      "displayName": "Плащ огня",
-      "displayDescription": "Горящий плащ, дающий иммунитет к огненному урону.",
-      "price": { "regularPrice": 700 },
-      "displayAssets": [
-        {
-          "full_background": "/images/item-7.svg",
-          "background": "/images/item-7.svg"
-        }
-      ]
+      "id": "CAC_569_31",
+      "title": "Амур",
+      "description": "Замесите тесто для самых вкусных печенек.",
+      "price": 1200,
+      "image": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/6b73da5663e61050/renderimage_0.png",
+      "colors": {
+        "color1": "b53628ff",
+        "color3": "360601ff",
+        "textBackgroundColor": "3a0000ff"
+      }
     },
     {
-      "mainId": "item-8",
-      "displayName": "Ночная броня",
-      "displayDescription": "Лёгкий броневой костюм, усиливающийся в темноте.",
-      "price": { "regularPrice": 1800 },
-      "displayAssets": [
-        {
-          "full_background": "/images/item-8.svg",
-          "background": "/images/item-8.svg"
-        }
-      ]
+      "id": "SummerIceSpiceSpongebob_390_458",
+      "title": "Патрик Стар",
+      "description": "Нет, это Патрик.",
+      "price": 1800,
+      "image": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/9d2d536756511ba2/renderimage_0.png",
+      "colors": {
+        "color1": "003c51ff",
+        "color2": "9200ffff",
+        "color3": "2bcdf7ff",
+        "textBackgroundColor": "003c51ff"
+      }
     },
     {
-      "mainId": "item-9",
-      "displayName": "Алые крылья",
-      "displayDescription": "Позволяют парить над полем боя и атаковать с воздуха.",
-      "price": { "regularPrice": 2500 },
-      "displayAssets": [
-        {
-          "full_background": "/images/item-9.svg",
-          "background": "/images/item-9.svg"
-        }
-      ]
+      "id": "Invincible1_403_984",
+      "title": "Дупли-кация",
+      "description": "Выберите свой стиль.",
+      "price": 500,
+      "image": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/9963ee77d2b21270/renderimage_0.png",
+      "colors": {
+        "color1": "4bbfbfff",
+        "color2": "0d938cff",
+        "color3": "2ab19aff",
+        "textBackgroundColor": "096d73ff"
+      }
     },
     {
-      "mainId": "item-10",
-      "displayName": "Кристальный посох",
-      "displayDescription": "Магический посох, усиливающий все заклинания.",
-      "price": { "regularPrice": 1600 },
-      "displayAssets": [
-        {
-          "full_background": "/images/item-10.svg",
-          "background": "/images/item-10.svg"
-        }
-      ]
+      "id": "Invincible1_646_201",
+      "title": "Рука киборга",
+      "description": "Ручная работа Д.А. Синклера.",
+      "price": 800,
+      "image": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/064ef9396d520be3/renderimage_0.png",
+      "colors": {
+        "color1": "4bbfbfff",
+        "color2": "0d938cff",
+        "color3": "2ab19aff",
+        "textBackgroundColor": "096d73ff"
+      }
     },
     {
-      "mainId": "item-11",
-      "displayName": "Лесной рюкзак",
-      "displayDescription": "Увеличивает вместимость инвентаря и скорость передвижения.",
-      "price": { "regularPrice": 600 },
-      "displayAssets": [
-        {
-          "full_background": "/images/item-11.svg",
-          "background": "/images/item-11.svg"
-        }
-      ]
+      "id": "SummerIceSpiceSpongebob_593_748",
+      "title": "Губка Боб Квадратные Штаны",
+      "description": "Живёт в ананасе на дне океана.",
+      "price": 1800,
+      "image": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/6ac05182eddcb7a4/renderimage_0.png",
+      "colors": {
+        "color1": "003c51ff",
+        "color2": "9200ffff",
+        "color3": "2bcdf7ff",
+        "textBackgroundColor": "003c51ff"
+      }
     },
     {
-      "mainId": "item-12",
-      "displayName": "Перчатки инферно",
-      "displayDescription": "Огненные перчатки, поджигающие врагов при ударе.",
-      "price": { "regularPrice": 1300 },
-      "displayAssets": [
-        {
-          "full_background": "/images/item-12.svg",
-          "background": "/images/item-12.svg"
-        }
-      ]
+      "id": "ishowspeed2_455_139",
+      "title": "Эмблема IShowSpeed",
+      "description": "Обретите молниеносную скорость.",
+      "price": 800,
+      "image": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/fb1ca756446c3424/renderimage_0.png",
+      "colors": {
+        "color1": "84250eff",
+        "color3": "f6962fff",
+        "textBackgroundColor": "f6962fff"
+      }
+    },
+    {
+      "id": "Gorillaz1_131_202",
+      "title": "Гитара Нудл",
+      "description": "Не забудьте про защитные наушники.",
+      "price": 800,
+      "image": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/dd6737b5d51634f5/renderimage_0.png",
+      "colors": {
+        "color1": "bcaf95ff",
+        "color3": "c55434ff",
+        "textBackgroundColor": "c55434ff"
+      }
+    },
+    {
+      "id": "SoloLeveling_181_922",
+      "title": "Гнев Камиша",
+      "description": "Выберите свой стиль.",
+      "price": 500,
+      "image": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/fe1ae12d9b65ad6b/renderimage_0.png",
+      "colors": {
+        "color1": "e060f3ff",
+        "color2": "a934f7ff",
+        "color3": "c14af5ff",
+        "textBackgroundColor": "a934f7ff"
+      }
+    },
+    {
+      "id": "SoloLeveling_130_297",
+      "title": "Плащ Игриса",
+      "description": "Одеяние благородного рыцаря.",
+      "price": 300,
+      "image": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/53210bc676f414dd/renderimage_0.png",
+      "colors": {
+        "color1": "e060f3ff",
+        "color2": "a934f7ff",
+        "color3": "c14af5ff",
+        "textBackgroundColor": "a934f7ff"
+      }
+    },
+    {
+      "id": "Invincible1_489_822",
+      "title": "Булава Воительницы",
+      "description": "Не давайте никому больше к ней прикасаться.",
+      "price": 500,
+      "image": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/f5f66223f8263d88/renderimage_0.png",
+      "colors": {
+        "color1": "4bbfbfff",
+        "color2": "0d938cff",
+        "color3": "2ab19aff",
+        "textBackgroundColor": "096d73ff"
+      }
+    },
+    {
+      "id": "Gorillaz1_464_693",
+      "title": "Осьминог-циклоп",
+      "description": "Восемь щупалец — неограниченное количество ударов.",
+      "price": 300,
+      "image": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/473a196199816aff/renderimage_0.png",
+      "colors": {
+        "color1": "bcaf95ff",
+        "color3": "c55434ff",
+        "textBackgroundColor": "c55434ff"
+      }
+    },
+    {
+      "id": "SummerBatman_344_464",
+      "title": "Пляжная сумка Селины",
+      "description": "Когда кот в мешке — не такая уж плохая идея.",
+      "price": 400,
+      "image": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/84bd1c2190d64910/renderimage_0.png",
+      "colors": {
+        "color1": "faac38ff",
+        "color3": "ffcf88ff",
+        "textBackgroundColor": "83531cff"
+      }
+    },
+    {
+      "id": "SummerIceSpiceSpongebob_346_790",
+      "title": "Цветочный облачный след",
+      "description": "Скользите по облакам!",
+      "price": 300,
+      "image": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/6aa38b246c6670fa/renderimage_0.png",
+      "colors": {
+        "color1": "003c51ff",
+        "color2": "9200ffff",
+        "color3": "2bcdf7ff",
+        "textBackgroundColor": "003c51ff"
+      }
+    },
+    {
+      "id": "SoloLeveling_101_549",
+      "title": "Крылья света",
+      "description": "Покажите силу своей ауры.",
+      "price": 400,
+      "image": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/a66b2d562d6d237b/renderimage_0.png",
+      "colors": {
+        "color1": "e060f3ff",
+        "color2": "a934f7ff",
+        "color3": "c14af5ff",
+        "textBackgroundColor": "a934f7ff"
+      }
+    },
+    {
+      "id": "BR072626_893_427",
+      "title": "Vans Sk8-Hi 'Racing Red'",
+      "description": "Ловите завистливые взгляды!",
+      "price": 800,
+      "image": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/8ee78d46c07fba2c/renderimage_0.png",
+      "colors": {
+        "color1": "001535ff",
+        "color2": "003b8eff",
+        "color3": "002862ff",
+        "textBackgroundColor": "003b8eff"
+      }
+    },
+    {
+      "id": "Invincible1_663_361",
+      "title": "Топор К. О. П.",
+      "description": "Воплощение Коалиции Планет.",
+      "price": 800,
+      "image": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/a368986eea378733/renderimage_0.png",
+      "colors": {
+        "color1": "4bbfbfff",
+        "color2": "0d938cff",
+        "color3": "2ab19aff",
+        "textBackgroundColor": "096d73ff"
+      }
+    },
+    {
+      "id": "SummerIceSpiceSpongebob_688_86",
+      "title": "Гуфи Губер",
+      "description": "Зажигайте как Гуфи Губер.",
+      "price": 800,
+      "image": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/b251378d87183e7f/renderimage_0.png",
+      "colors": {
+        "color1": "003c51ff",
+        "color2": "9200ffff",
+        "color3": "2bcdf7ff",
+        "textBackgroundColor": "003c51ff"
+      }
+    },
+    {
+      "id": "FND072626_493_556",
+      "title": "Курокол",
+      "description": "Забудьте об опозданиях!",
+      "price": 800,
+      "image": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/0fad3a601f5823eb/renderimage_0.png",
+      "colors": {
+        "color1": "616e6fff",
+        "color2": "000000ff",
+        "color3": "494f5aff",
+        "textBackgroundColor": "3a4044ff"
+      }
+    },
+    {
+      "id": "Invincible1_809_285",
+      "title": "Уменьшенная Рей",
+      "description": "В каждом из нас есть маленький герой, которого надо поддерживать.",
+      "price": 400,
+      "image": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/d81dcdc9cf39a47f/renderimage_0.png",
+      "colors": {
+        "color1": "4bbfbfff",
+        "color2": "0d938cff",
+        "color3": "2ab19aff",
+        "textBackgroundColor": "096d73ff"
+      }
+    },
+    {
+      "id": "SummerIceSpiceSpongebob_789_534",
+      "title": "Crocs Classic Clog «Сквидвард»",
+      "description": "Ловите завистливые взгляды!",
+      "price": 1000,
+      "image": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/652ac3652fbb37f0/renderimage_0.png",
+      "colors": {
+        "color1": "003c51ff",
+        "color2": "9200ffff",
+        "color3": "2bcdf7ff",
+        "textBackgroundColor": "003c51ff"
+      }
+    },
+    {
+      "id": "Gorillaz1_684_209",
+      "title": "Мегафон 2D",
+      "description": "Распространяйте правду! Ну или кричите в пустоту.",
+      "price": 300,
+      "image": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/72ad5a7f1edf63dc/renderimage_0.png",
+      "colors": {
+        "color1": "bcaf95ff",
+        "color3": "c55434ff",
+        "textBackgroundColor": "c55434ff"
+      }
+    },
+    {
+      "id": "SummerIceSpiceSpongebob_688_267",
+      "title": "Мороженки Патрика",
+      "description": "Постарайтесь не уронить.",
+      "price": 800,
+      "image": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/e970c818124eb9e6/renderimage_0.png",
+      "colors": {
+        "color1": "003c51ff",
+        "color2": "9200ffff",
+        "color3": "2bcdf7ff",
+        "textBackgroundColor": "003c51ff"
+      }
+    },
+    {
+      "id": "DavidBeckham_395_955",
+      "title": "Коса-семёрка",
+      "description": "Идеальная точность.",
+      "price": 800,
+      "image": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/7b54b466df4fafa0/renderimage_0.png",
+      "colors": {
+        "color1": "cbba77ff",
+        "color2": "ffffffff",
+        "color3": "9b8630ff",
+        "textBackgroundColor": "9b8630ff"
+      }
+    },
+    {
+      "id": "BR072626_577_603",
+      "title": "Nike Air Max 95 OG 'Neon'",
+      "description": "Ловите завистливые взгляды!",
+      "price": 800,
+      "image": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/8636f510602bab2b/renderimage_0.png",
+      "colors": {
+        "color1": "001535ff",
+        "color2": "003b8eff",
+        "color3": "002862ff",
+        "textBackgroundColor": "003b8eff"
+      }
+    },
+    {
+      "id": "SummerIceSpiceSpongebob_993_940",
+      "title": "Каракуля Боб",
+      "description": "Ме хой миной!",
+      "price": 400,
+      "image": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/875d17b12b00296a/renderimage_0.png",
+      "colors": {
+        "color1": "003c51ff",
+        "color2": "9200ffff",
+        "color3": "2bcdf7ff",
+        "textBackgroundColor": "003c51ff"
+      }
+    },
+    {
+      "id": "TheFlashWonder_742_566",
+      "title": "Векторы скорости",
+      "description": "Физическое воплощение силы Алого Бегуна.",
+      "price": 1200,
+      "image": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/cf4422a5f8704c59/renderimage_0.png",
+      "colors": {
+        "color1": "106ef0ff",
+        "color2": "1c2f54ff",
+        "color3": "06275dff",
+        "textBackgroundColor": "1c2f54ff"
+      }
+    },
+    {
+      "id": "Gorillaz1_958_925",
+      "title": "Барабаны Рассела",
+      "description": "В них вселились духи барабанщиков.",
+      "price": 800,
+      "image": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/62a62be45fbab899/renderimage_0.png",
+      "colors": {
+        "color1": "bcaf95ff",
+        "color3": "c55434ff",
+        "textBackgroundColor": "c55434ff"
+      }
+    },
+    {
+      "id": "FND072626_47_531",
+      "title": "Расписание турне",
+      "description": "Выберите свой стиль.",
+      "price": 500,
+      "image": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/2e473e0523566c63/renderimage_0.png",
+      "colors": {
+        "color1": "616e6fff",
+        "color2": "000000ff",
+        "color3": "494f5aff",
+        "textBackgroundColor": "3a4044ff"
+      }
+    },
+    {
+      "id": "SummerBatman_635_437",
+      "title": "Бэт-весло",
+      "description": "Бэт-байдарка в комплект не входит.",
+      "price": 500,
+      "image": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/79699d5a57a6887e/renderimage_0.png",
+      "colors": {
+        "color1": "f88734ff",
+        "color3": "ed5f54ff",
+        "textBackgroundColor": "a73d2fff"
+      }
+    },
+    {
+      "id": "BR072626_189_315",
+      "title": "Бананстер",
+      "description": "Могут остаться синяки.",
+      "price": 500,
+      "image": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/f12590b7f9a79813/renderimage_0.png",
+      "colors": {
+        "color1": "001535ff",
+        "color2": "003b8eff",
+        "color3": "002862ff",
+        "textBackgroundColor": "003b8eff"
+      }
+    },
+    {
+      "id": "BR072626_586_739",
+      "title": "Air Jordan 4 Retro SE 'What The'",
+      "description": "Ловите завистливые взгляды!",
+      "price": 800,
+      "image": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/abf4e80a652dfd90/renderimage_0.png",
+      "colors": {
+        "color1": "001535ff",
+        "color2": "003b8eff",
+        "color3": "002862ff",
+        "textBackgroundColor": "003b8eff"
+      }
+    },
+    {
+      "id": "CAC_753_588",
+      "title": "Солнечный спаниель",
+      "description": "Никто не любит прогулки в солнечную погоду сильнее, чем он.",
+      "price": 1200,
+      "image": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/e1c6380ff6f776c9/renderimage_0.png",
+      "colors": {
+        "color1": "b53628ff",
+        "color3": "360601ff",
+        "textBackgroundColor": "3a0000ff"
+      }
+    },
+    {
+      "id": "Invincible1_776_991",
+      "title": "Сине-чёрный знак",
+      "description": "Выберите свой стиль.",
+      "price": 500,
+      "image": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/eaf45801d90f4735/renderimage_0.png",
+      "colors": {
+        "color1": "4bbfbfff",
+        "color2": "0d938cff",
+        "color3": "2ab19aff",
+        "textBackgroundColor": "096d73ff"
+      }
+    },
+    {
+      "id": "ishowspeed2_848_177",
+      "title": "Молния IShowSpeed",
+      "description": "Мчите быстрее всех!",
+      "price": 800,
+      "image": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/f20948b65db88197/renderimage_0.png",
+      "colors": {
+        "color1": "84250eff",
+        "color3": "f6962fff",
+        "textBackgroundColor": "f6962fff"
+      }
+    },
+    {
+      "id": "Invincible1_944_341",
+      "title": "Неуязвимый рифф",
+      "description": "Этот рифф спасёт мир!",
+      "price": 800,
+      "image": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/77f126b64d865c8d/renderimage_0.png",
+      "colors": {
+        "color1": "4bbfbfff",
+        "color2": "0d938cff",
+        "color3": "2ab19aff",
+        "textBackgroundColor": "096d73ff"
+      }
+    },
+    {
+      "id": "Invincible1_886_997",
+      "title": "Дупли-лезвия",
+      "description": "Дупли-цированы.",
+      "price": 800,
+      "image": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/d4f94c4e95b9371a/renderimage_0.png",
+      "colors": {
+        "color1": "4bbfbfff",
+        "color2": "0d938cff",
+        "color3": "2ab19aff",
+        "textBackgroundColor": "096d73ff"
+      }
+    },
+    {
+      "id": "CAC_236_843",
+      "title": "Королева",
+      "description": "Ну и манеры.",
+      "price": 1200,
+      "image": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/296182ba298515fa/renderimage_0.png",
+      "colors": {
+        "color1": "b53628ff",
+        "color3": "360601ff",
+        "textBackgroundColor": "3a0000ff"
+      }
+    },
+    {
+      "id": "ishowspeed2_696_261",
+      "title": "Трезубец IShowSpeed",
+      "description": "Для разборок с хейтерами.",
+      "price": 800,
+      "image": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/7958a281faedbbc4/renderimage_0.png",
+      "colors": {
+        "color1": "84250eff",
+        "color3": "f6962fff",
+        "textBackgroundColor": "f6962fff"
+      }
+    },
+    {
+      "id": "Invincible1_681_459",
+      "title": "Бас Омни-Мэна",
+      "description": "Играй рок, как настоящий вилтрумиец!",
+      "price": 800,
+      "image": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/08591d985bf02b8b/renderimage_0.png",
+      "colors": {
+        "color1": "4bbfbfff",
+        "color2": "0d938cff",
+        "color3": "2ab19aff",
+        "textBackgroundColor": "096d73ff"
+      }
+    },
+    {
+      "id": "SummerIceSpiceSpongebob_993_529",
+      "title": "Ударные Бикини Боттом",
+      "description": "Майонез МОЖЕТ быть инструментом.",
+      "price": 800,
+      "image": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/598e812c73a5709e/renderimage_0.png",
+      "colors": {
+        "color1": "003c51ff",
+        "color2": "9200ffff",
+        "color3": "2bcdf7ff",
+        "textBackgroundColor": "003c51ff"
+      }
+    },
+    {
+      "id": "SoloLeveling_24_747",
+      "title": "Кайсел",
+      "description": "Взмойте в небо на теневой виверне!",
+      "price": 1200,
+      "image": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/b2ed504262e04306/renderimage_0.png",
+      "colors": {
+        "color1": "e060f3ff",
+        "color2": "a934f7ff",
+        "color3": "c14af5ff",
+        "textBackgroundColor": "a934f7ff"
+      }
+    },
+    {
+      "id": "SummerIceSpiceSpongebob_379_256",
+      "title": "Тапочки Гэри",
+      "description": "Ловите завистливые взгляды!",
+      "price": 1000,
+      "image": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/83d186b6659a309b/renderimage_0.png",
+      "colors": {
+        "color1": "003c51ff",
+        "color2": "9200ffff",
+        "color3": "2bcdf7ff",
+        "textBackgroundColor": "003c51ff"
+      }
+    },
+    {
+      "id": "ishowspeed2_871_713",
+      "title": "Колоритная молния",
+      "description": "Выберите свой стиль.",
+      "price": 500,
+      "image": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/fa087fbc2d26851b/renderimage_0.png",
+      "colors": {
+        "color1": "84250eff",
+        "color3": "f6962fff",
+        "textBackgroundColor": "f6962fff"
+      }
+    },
+    {
+      "id": "SummerIceSpiceSpongebob_121_338",
+      "title": "Тапочки Губки Боба",
+      "description": "Ловите завистливые взгляды!",
+      "price": 1000,
+      "image": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/1d1beadffb7d80f7/renderimage_0.png",
+      "colors": {
+        "color1": "003c51ff",
+        "color2": "9200ffff",
+        "color3": "2bcdf7ff",
+        "textBackgroundColor": "003c51ff"
+      }
+    },
+    {
+      "id": "Gorillaz1_420_457",
+      "title": "Камуфляж Gorillaz",
+      "description": "Выберите свой стиль.",
+      "price": 500,
+      "image": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/19ebde00df23eefc/renderimage_0.png",
+      "colors": {
+        "color1": "bcaf95ff",
+        "color3": "c55434ff",
+        "textBackgroundColor": "c55434ff"
+      }
+    },
+    {
+      "id": "SummerBatman_113_697",
+      "title": "Надувной бэтаранг",
+      "description": "Тоже спасает жизни, но в других условиях.",
+      "price": 300,
+      "image": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/25f9bc7295bbb769/renderimage_0.png",
+      "colors": {
+        "color1": "f86b71ff",
+        "color3": "ffa9a5ff",
+        "textBackgroundColor": "784042ff"
+      }
+    },
+    {
+      "id": "Gorillaz1_380_36",
+      "title": "Бас-гитара Мёрдока",
+      "description": "Сделана в Сток-он-Тренте.",
+      "price": 800,
+      "image": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/3892489ce134ca7a/renderimage_0.png",
+      "colors": {
+        "color1": "bcaf95ff",
+        "color3": "c55434ff",
+        "textBackgroundColor": "c55434ff"
+      }
+    },
+    {
+      "id": "DavidBeckham_144_577",
+      "title": "Номер Бекхэма",
+      "description": "Культовая «семёрка».",
+      "price": 400,
+      "image": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/f5de86e9e0bb5130/renderimage_0.png",
+      "colors": {
+        "color1": "cbba77ff",
+        "color2": "ffffffff",
+        "color3": "9b8630ff",
+        "textBackgroundColor": "9b8630ff"
+      }
+    },
+    {
+      "id": "SummerBatman_331_238",
+      "title": "Бэтапки",
+      "description": "Ловите завистливые взгляды!",
+      "price": 1000,
+      "image": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/8b781285e7ef31ac/renderimage_0.png",
+      "colors": {
+        "color1": "faac38ff",
+        "color3": "ffcf88ff",
+        "textBackgroundColor": "83531cff"
+      }
+    },
+    {
+      "id": "CAC_940_432",
+      "title": "Бабл",
+      "description": "Бабл-ти заказывали?",
+      "price": 1200,
+      "image": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/7b609ffdc6a33a21/renderimage_0.png",
+      "colors": {
+        "color1": "b53628ff",
+        "color3": "360601ff",
+        "textBackgroundColor": "3a0000ff"
+      }
+    },
+    {
+      "id": "DavidBeckham_4_3",
+      "title": "Футбольный метеорит",
+      "description": "Безупречный удар.",
+      "price": 800,
+      "image": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/1053d8672e9eb0ce/renderimage_0.png",
+      "colors": {
+        "color1": "cbba77ff",
+        "color2": "ffffffff",
+        "color3": "9b8630ff",
+        "textBackgroundColor": "9b8630ff"
+      }
+    },
+    {
+      "id": "JeepWrangler_276_960",
+      "title": "Jeep Wrangler Off-Road",
+      "description": "Идут в комплекте с кузовом",
+      "price": 400,
+      "image": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/ca9af452ac3e0dfb/renderimage_0.png",
+      "colors": {
+        "color1": "8affefff",
+        "color2": "537b79ff",
+        "color3": "6b9b97ff",
+        "textBackgroundColor": "263e43ff"
+      }
+    },
+    {
+      "id": "ishowspeed2_230_366",
+      "title": "Камера IShowSpeed",
+      "description": "Ведите трансляцию где угодно!",
+      "price": 300,
+      "image": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/dab764f15b1b7b32/renderimage_0.png",
+      "colors": {
+        "color1": "84250eff",
+        "color3": "f6962fff",
+        "textBackgroundColor": "f6962fff"
+      }
+    },
+    {
+      "id": "FND072626_156_533",
+      "title": "Раскалыватель кошмаров",
+      "description": "Прогоните дурные сны.",
+      "price": 800,
+      "image": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/a19fb03eb59b392c/renderimage_0.png",
+      "colors": {
+        "color1": "616e6fff",
+        "color2": "000000ff",
+        "color3": "494f5aff",
+        "textBackgroundColor": "3a4044ff"
+      }
+    },
+    {
+      "id": "TheOdyssey_19_193",
+      "title": "Лук Одиссея",
+      "description": "Обладает туго натянутой тетивой даже по мифическим меркам.",
+      "price": 300,
+      "image": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/b91760c97f084086/renderimage_0.png",
+      "colors": {
+        "color1": "330b0cff",
+        "color3": "660002ff",
+        "textBackgroundColor": "660002ff"
+      }
+    },
+    {
+      "id": "Gorillaz1_133_874",
+      "title": "Микрофон 2D",
+      "description": "Проверка. Раз, два… три?",
+      "price": 800,
+      "image": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/65658fadb64c5202/renderimage_0.png",
+      "colors": {
+        "color1": "bcaf95ff",
+        "color3": "c55434ff",
+        "textBackgroundColor": "c55434ff"
+      }
+    },
+    {
+      "id": "CAC_512_599",
+      "title": "Кнопа",
+      "description": "Максимальная поддержка обеспечена.",
+      "price": 1200,
+      "image": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/da2493cbb057fab3/renderimage_0.png",
+      "colors": {
+        "color1": "b53628ff",
+        "color3": "360601ff",
+        "textBackgroundColor": "3a0000ff"
+      }
+    },
+    {
+      "id": "BR072626_501_215",
+      "title": "Дискроссовки",
+      "description": "Ловите завистливые взгляды!",
+      "price": 800,
+      "image": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/2e38ace2737cc1d6/renderimage_0.png",
+      "colors": {
+        "color1": "001535ff",
+        "color2": "003b8eff",
+        "color3": "002862ff",
+        "textBackgroundColor": "003b8eff"
+      }
+    },
+    {
+      "id": "DavidBeckham_413_696",
+      "title": "Герб клуба",
+      "description": "Управляйте игрой.",
+      "price": 500,
+      "image": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/3b75392043852a48/renderimage_0.png",
+      "colors": {
+        "color1": "cbba77ff",
+        "color2": "ffffffff",
+        "color3": "9b8630ff",
+        "textBackgroundColor": "9b8630ff"
+      }
+    },
+    {
+      "id": "FND072626_286_151",
+      "title": "Куриные лапы",
+      "description": "Ловите завистливые взгляды!",
+      "price": 600,
+      "image": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/b26916ecf625ee28/renderimage_0.png",
+      "colors": {
+        "color1": "616e6fff",
+        "color2": "000000ff",
+        "color3": "494f5aff",
+        "textBackgroundColor": "3a4044ff"
+      }
+    },
+    {
+      "id": "SummerBatman_737_837",
+      "title": "Опасные перчатки",
+      "description": "Осторожно: очень остро.",
+      "price": 500,
+      "image": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/dc44a2a34748c532/renderimage_0.png",
+      "colors": {
+        "color1": "f86b71ff",
+        "color3": "ffa9a5ff",
+        "textBackgroundColor": "784042ff"
+      }
+    },
+    {
+      "id": "CAC_16_503",
+      "title": "Космолиса Небула",
+      "description": "Загадочное космическое существо, способное жить на острове.",
+      "price": 1200,
+      "image": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/19bf156d0c45fd42/renderimage_0.png",
+      "colors": {
+        "color1": "b53628ff",
+        "color3": "360601ff",
+        "textBackgroundColor": "3a0000ff"
+      }
+    },
+    {
+      "id": "SoloLeveling_714_931",
+      "title": "Меч Короля демонов",
+      "description": "Выкован в белом пламени.",
+      "price": 800,
+      "image": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/df5e25827ada1594/renderimage_0.png",
+      "colors": {
+        "color1": "e060f3ff",
+        "color2": "a934f7ff",
+        "color3": "c14af5ff",
+        "textBackgroundColor": "a934f7ff"
+      }
+    },
+    {
+      "id": "BR072626_222_903",
+      "title": "Банан-арт",
+      "description": "Выберите свой стиль.",
+      "price": 500,
+      "image": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/d67e40a2b486a658/renderimage_0.png",
+      "colors": {
+        "color1": "001535ff",
+        "color2": "003b8eff",
+        "color3": "002862ff",
+        "textBackgroundColor": "003b8eff"
+      }
+    },
+    {
+      "id": "Gorillaz1_760_511",
+      "title": "Плащ Мёрдока",
+      "description": "Окутайте себя хаосом. Только химчистка.",
+      "price": 300,
+      "image": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/ef9dd018f6ed1c62/renderimage_0.png",
+      "colors": {
+        "color1": "bcaf95ff",
+        "color3": "c55434ff",
+        "textBackgroundColor": "c55434ff"
+      }
+    },
+    {
+      "id": "SummerBatman_516_471",
+      "title": "Бэт-гончая Эйс",
+      "description": "Лучший друг Бэтмена.",
+      "price": 1500,
+      "image": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/57bd2185f78516f9/renderimage_0.png",
+      "colors": {
+        "color1": "5fc9f1ff",
+        "color3": "ffe4a5ff",
+        "textBackgroundColor": "577a7bff"
+      }
+    },
+    {
+      "id": "CAC_504_727",
+      "title": "Мультяш",
+      "description": "Будто нарисованный!",
+      "price": 1200,
+      "image": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/7affb34555a4d886/renderimage_0.png",
+      "colors": {
+        "color1": "b53628ff",
+        "color3": "360601ff",
+        "textBackgroundColor": "3a0000ff"
+      }
+    },
+    {
+      "id": "BridgestoneDueler_416_704",
+      "title": "Bridgestone Dueler",
+      "description": "Кузов в комплекте!",
+      "price": 400,
+      "image": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/17b9f3358d545b93/renderimage_0.png",
+      "colors": {
+        "color1": "8affefff",
+        "color2": "537b79ff",
+        "color3": "6b9b97ff",
+        "textBackgroundColor": "263e43ff"
+      }
+    },
+    {
+      "id": "Invincible1_617_759",
+      "title": "Субатомные мечи",
+      "description": "Энергетически заряжены и остры, словно бритва. ",
+      "price": 800,
+      "image": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/fcb448c86ca685a1/renderimage_0.png",
+      "colors": {
+        "color1": "4bbfbfff",
+        "color2": "0d938cff",
+        "color3": "2ab19aff",
+        "textBackgroundColor": "096d73ff"
+      }
+    },
+    {
+      "id": "FND072626_398_730",
+      "title": "Nike Air Force 1 'Galaxy'",
+      "description": "Ловите завистливые взгляды!",
+      "price": 1000,
+      "image": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/f4745d70d4ceebed/renderimage_0.png",
+      "colors": {
+        "color1": "616e6fff",
+        "color2": "000000ff",
+        "color3": "494f5aff",
+        "textBackgroundColor": "3a4044ff"
+      }
+    },
+    {
+      "id": "SummerIceSpiceSpongebob_996_526",
+      "title": "Зонтик Ice Spice",
+      "description": "Прохлада в тени.",
+      "price": 500,
+      "image": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/5fc7a3b0d5f44b8f/renderimage_0.png",
+      "colors": {
+        "color1": "003c51ff",
+        "color2": "9200ffff",
+        "color3": "2bcdf7ff",
+        "textBackgroundColor": "003c51ff"
+      }
+    },
+    {
+      "id": "TheOdyssey_708_33",
+      "title": "Щит Агамемнона",
+      "description": "Десять лет войны за вашими плечами.",
+      "price": 300,
+      "image": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/6c358a17bdf44fc3/renderimage_0.png",
+      "colors": {
+        "color1": "330b0cff",
+        "color3": "660002ff",
+        "textBackgroundColor": "660002ff"
+      }
+    },
+    {
+      "id": "Invincible1_828_423",
+      "title": "Отслеживающее устройство Аллена",
+      "description": "Стоп… Как я тут оказался?",
+      "price": 300,
+      "image": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/c266f7965a5edd85/renderimage_0.png",
+      "colors": {
+        "color1": "4bbfbfff",
+        "color2": "0d938cff",
+        "color3": "2ab19aff",
+        "textBackgroundColor": "096d73ff"
+      }
+    },
+    {
+      "id": "SummerIceSpiceSpongebob_708_867",
+      "title": "Рыба Ice Spice",
+      "description": "Плыви против течения.",
+      "price": 600,
+      "image": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/05e2ba962d0de982/renderimage_0.png",
+      "colors": {
+        "color1": "003c51ff",
+        "color2": "9200ffff",
+        "color3": "2bcdf7ff",
+        "textBackgroundColor": "003c51ff"
+      }
+    },
+    {
+      "id": "TheFlashWonder_583_855",
+      "title": "Боевой топор Афины",
+      "description": "Зачарован магическими силами Лассо Истины.",
+      "price": 800,
+      "image": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/0904099920b146ee/renderimage_0.png",
+      "colors": {
+        "color1": "106ef0ff",
+        "color2": "1c2f54ff",
+        "color3": "06275dff",
+        "textBackgroundColor": "1c2f54ff"
+      }
+    },
+    {
+      "id": "FND072626_722_505",
+      "title": "Проклятие пустоты",
+      "description": "Выберите свой стиль.",
+      "price": 500,
+      "image": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/e8ff08766fb4cac7/renderimage_0.png",
+      "colors": {
+        "color1": "616e6fff",
+        "color2": "000000ff",
+        "color3": "494f5aff",
+        "textBackgroundColor": "3a4044ff"
+      }
+    },
+    {
+      "id": "SummerIceSpiceSpongebob_94_500",
+      "title": "Медуза из Бикини Боттом",
+      "description": "Прямиком из сетей.",
+      "price": 400,
+      "image": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/03cc51b6cb9fe60a/renderimage_0.png",
+      "colors": {
+        "color1": "003c51ff",
+        "color2": "9200ffff",
+        "color3": "2bcdf7ff",
+        "textBackgroundColor": "003c51ff"
+      }
+    },
+    {
+      "id": "CAC_966_244",
+      "title": "Нектарчик",
+      "description": "Ваш маленький защитник.",
+      "price": 1200,
+      "image": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/0dac51584e13a52b/renderimage_0.png",
+      "colors": {
+        "color1": "b53628ff",
+        "color3": "360601ff",
+        "textBackgroundColor": "3a0000ff"
+      }
+    },
+    {
+      "id": "TheFlashWonder_508_770",
+      "title": "Золотые орлиные крылья",
+      "description": "Выкованы для Дианы в подарок от Паллас.",
+      "price": 1200,
+      "image": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/b307127bd1420d64/renderimage_0.png",
+      "colors": {
+        "color1": "106ef0ff",
+        "color2": "1c2f54ff",
+        "color3": "06275dff",
+        "textBackgroundColor": "1c2f54ff"
+      }
+    },
+    {
+      "id": "SoloLeveling_23_766",
+      "title": "Статуя Бога",
+      "description": "На колени!",
+      "price": 300,
+      "image": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/b0e8107e45968623/renderimage_0.png",
+      "colors": {
+        "color1": "e060f3ff",
+        "color2": "a934f7ff",
+        "color3": "c14af5ff",
+        "textBackgroundColor": "a934f7ff"
+      }
+    },
+    {
+      "id": "Gorillaz1_652_687",
+      "title": "Футляр Нудл",
+      "description": "То, что должно быть у каждого уважающего себя наёмника-музыканта.",
+      "price": 300,
+      "image": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/35f339245d253603/renderimage_0.png",
+      "colors": {
+        "color1": "bcaf95ff",
+        "color3": "c55434ff",
+        "textBackgroundColor": "c55434ff"
+      }
+    },
+    {
+      "id": "Gorillaz1_85_596",
+      "title": "Костлявые шары",
+      "description": "Чувствуйте себя хорошо во время падения.",
+      "price": 600,
+      "image": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/0daac94440ad54a7/renderimage_0.png",
+      "colors": {
+        "color1": "bcaf95ff",
+        "color3": "c55434ff",
+        "textBackgroundColor": "c55434ff"
+      }
+    },
+    {
+      "id": "SummerIceSpiceSpongebob_19_950",
+      "title": "Песочная гитара",
+      "description": "Это не майонез, но это инструмент.",
+      "price": 800,
+      "image": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/4f3119b497ed6f60/renderimage_0.png",
+      "colors": {
+        "color1": "003c51ff",
+        "color2": "9200ffff",
+        "color3": "2bcdf7ff",
+        "textBackgroundColor": "003c51ff"
+      }
+    },
+    {
+      "id": "Invincible1_547_719",
+      "title": "Действительно неуязвимый",
+      "description": "Выберите свой стиль.",
+      "price": 300,
+      "image": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/7cf79b7efe56bf29/renderimage_0.png",
+      "colors": {
+        "color1": "4bbfbfff",
+        "color2": "0d938cff",
+        "color3": "2ab19aff",
+        "textBackgroundColor": "096d73ff"
+      }
+    },
+    {
+      "id": "SummerIceSpiceSpongebob_305_435",
+      "title": "Сачок для медуз",
+      "description": "Отправьтесь на охоту за медузами!",
+      "price": 800,
+      "image": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/44cb13d5ae9ace9a/renderimage_0.png",
+      "colors": {
+        "color1": "003c51ff",
+        "color2": "9200ffff",
+        "color3": "2bcdf7ff",
+        "textBackgroundColor": "003c51ff"
+      }
+    },
+    {
+      "id": "SummerBatman_517_884",
+      "title": "Надувной круг Харли",
+      "description": "Идеален для плавания на спине.",
+      "price": 300,
+      "image": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/d1c5339e7bdf5cd5/renderimage_0.png",
+      "colors": {
+        "color1": "5fc9f1ff",
+        "color3": "ffe4a5ff",
+        "textBackgroundColor": "577a7bff"
+      }
+    },
+    {
+      "id": "CAC_442_615",
+      "title": "Виконт",
+      "description": "Не лает, но кусает.",
+      "price": 1200,
+      "image": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/e97e751ade0f883c/renderimage_0.png",
+      "colors": {
+        "color1": "b53628ff",
+        "color3": "360601ff",
+        "textBackgroundColor": "3a0000ff"
+      }
+    },
+    {
+      "id": "CAC_189_694",
+      "title": "Карасик",
+      "description": "Больше всего любит купаться… во внимании!",
+      "price": 1500,
+      "image": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/6ee81b22373d7d9e/renderimage_0.png",
+      "colors": {
+        "color1": "b53628ff",
+        "color3": "360601ff",
+        "textBackgroundColor": "3a0000ff"
+      }
+    },
+    {
+      "id": "CAC_104_87",
+      "title": "Корнишон",
+      "description": "Его секрет успеха — он всегда как огурчик!",
+      "price": 1200,
+      "image": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/b5c91fbaf363b577/renderimage_0.png",
+      "colors": {
+        "color1": "b53628ff",
+        "color3": "360601ff",
+        "textBackgroundColor": "3a0000ff"
+      }
     }
   ]
 }

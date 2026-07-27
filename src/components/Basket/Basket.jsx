@@ -1,7 +1,5 @@
 import { BasketItem } from "./BasketItem";
-
 import { useContext } from "react";
-
 import { ShopContext } from "../../context";
 
 function Basket() {

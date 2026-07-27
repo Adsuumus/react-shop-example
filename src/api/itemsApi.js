@@ -16,7 +16,7 @@ async function fetchItem(id) {
     const response = await fetch(API_URL);
     const data = await response.json();
 
-    return data.shop.find((product) => product.mainId === id);
+    return data.shop.find((product) => product.id === id);
   } catch (error) {
     console.error("Ошибка загрузки товара:", error);
     throw error;
