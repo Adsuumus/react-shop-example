@@ -1,0 +1,14 @@
+import { NavLink } from "react-router-dom";
+
+function NotFound() {
+  return (
+    <div className="min-h-screen  p-8">
+      <div className="max-w-3xl mx-auto">
+        <h2>Страница не существует</h2>
+        <NavLink to="/">Вернуться на главную</NavLink>
+      </div>
+    </div>
+  );
+}
+
+export { NotFound };

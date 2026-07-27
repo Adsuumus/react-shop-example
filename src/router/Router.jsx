@@ -4,6 +4,7 @@ import { About } from "../pages/About";
 import { Contact } from "../pages/Contact";
 import { ItemPage } from "../pages/ItemPage";
 import { Layout } from "../layout/Layout";
+import { NotFound } from "../pages";
 
 const router = createBrowserRouter(
   [
@@ -15,6 +16,7 @@ const router = createBrowserRouter(
         { path: "about", element: <About /> },
         { path: "contact", element: <Contact /> },
         { path: "/product/:id", element: <ItemPage /> },
+        { path: "*", element: <NotFound /> },
       ],
     },
   ],
