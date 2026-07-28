@@ -1,6 +1,6 @@
 import { BasketItem } from "./BasketItem";
 import { useContext } from "react";
-import { ShopContext } from "../../context";
+import { ShopContext } from "../../../context";
 
 function Basket() {
   const { order, toggleBasket } = useContext(ShopContext);

@@ -1,6 +1,6 @@
 import { NavLink } from "react-router-dom";
-import { Cart } from "./Basket/Cart";
-import { Search } from "./Search";
+import { Cart } from "../features/Basket/Cart";
+import { Search } from "..";
 
 const navClass = ({ isActive }) =>
   `whitespace-nowrap transition cursor-pointer ${
@@ -43,9 +43,12 @@ function Header() {
 
           {/* Правая часть */}
           <div className="basis-[350px] min-w-min justify-end flex items-center gap-4 ">
-            <button className="cursor-pointer px-4 py-2 text-gray-300 hover:text-white bg-gray-800 hover:bg-gray-700 rounded-lg transition border border-gray-700 hover:border-gray-600 whitespace-nowrap">
+            <NavLink
+              to="/login"
+              className="cursor-pointer px-4 py-2 text-gray-300 hover:text-white bg-gray-800 hover:bg-gray-700 rounded-lg transition border border-gray-700 hover:border-gray-600 whitespace-nowrap"
+            >
               Войти
-            </button>
+            </NavLink>
 
             <Cart />
           </div>

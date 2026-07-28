@@ -1,6 +1,6 @@
 import { useParams } from "react-router-dom";
 import { useItem } from "../hooks/useItems";
-import { Preloader } from "../components/Preloader";
+import { Preloader } from "../components";
 
 function ItemPage() {
   const { id } = useParams();

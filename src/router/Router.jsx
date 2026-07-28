@@ -1,10 +1,6 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import { Home } from "../pages/Home";
-import { About } from "../pages/About";
-import { Contact } from "../pages/Contact";
-import { ItemPage } from "../pages/ItemPage";
 import { Layout } from "../layout/Layout";
-import { NotFound } from "../pages";
+import { NotFound, LoginPage, ItemPage, Contact, About, Home } from "../pages";
 
 const router = createBrowserRouter(
   [
@@ -16,6 +12,7 @@ const router = createBrowserRouter(
         { path: "about", element: <About /> },
         { path: "contact", element: <Contact /> },
         { path: "/product/:id", element: <ItemPage /> },
+        { path: "/login", element: <LoginPage /> },
         { path: "*", element: <NotFound /> },
       ],
     },

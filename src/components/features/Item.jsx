@@ -1,9 +1,9 @@
 import { useContext, useLayoutEffect, useState } from "react";
-import { ShopContext } from "../context";
+import { ShopContext } from "../../context";
 
 import { Link } from "react-router-dom";
 
-function Item({ id, title, description, price, image, colors }) {
+function Item({ id, title, description, price, image, textBackgroundColor }) {
   const { addItem, incrementItem, decrimentItem, order } =
     useContext(ShopContext);
   const [isInitialBlock, setIsInitialBlock] = useState(false);
@@ -23,7 +23,7 @@ function Item({ id, title, description, price, image, colors }) {
     <div className="flex flex-col h-full relative">
       <div
         style={{
-          backgroundColor: `color-mix(in srgb, #${colors.textBackgroundColor.substring(0, 6)} 20%, #1f2937 60%)`,
+          backgroundColor: `color-mix(in srgb, #${textBackgroundColor.substring(0, 6)} 20%, #1f2937 60%)`,
         }}
         className="hover:ring-2 hover:ring-blue-500 transition rounded-lg overflow-hidden relative flex-1"
       >

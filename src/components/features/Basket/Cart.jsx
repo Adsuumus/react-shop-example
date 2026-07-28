@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import { ShopContext } from "../../context";
+import { ShopContext } from "../../../context";
 
 function Cart() {
   const { toggleBasket, order } = useContext(ShopContext);

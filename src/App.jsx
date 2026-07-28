@@ -1,4 +1,3 @@
-import { Preloader } from "./components/Preloader";
 import { ContextProvider } from "./context";
 import { Router } from "./router/Router";
 
