@@ -31,7 +31,7 @@ function Item({ id, title, description, price, image, colors }) {
           <img
             src={image}
             alt={title}
-            className="w-full h-auto object-contain"
+            className="w-full h-auto object-contain transition-transform duration-300 group-hover:scale-120"
           />
         </Link>
         <div className="p-5 pb-12">
