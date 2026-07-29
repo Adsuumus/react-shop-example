@@ -16,6 +16,7 @@ export const ContextProvider = ({ children }) => {
     ...state,
     setGoods: (goods) => dispatch({ type: "SET_GOODS", payload: goods }),
     toggleBasket: () => dispatch({ type: "TOGGLE_BASKET" }),
+    clouseBasket: () => dispatch({ type: "CLOUSE_BASKET" }),
     delItem: (itemID) =>
       dispatch({ type: "DEL_ITEM", payload: { id: itemID } }),
     decrimentItem: (itemID) =>

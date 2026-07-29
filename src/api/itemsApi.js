@@ -1,7 +1,7 @@
 import axios from "axios";
 
-const supabaseUrl = "https://nevuxbpwcctfchapsxvq.supabase.co";
-const supabaseKey = "sb_publishable_8d90FncTUNSaDEGkjxij1w_iQWr0Nu8";
+const supabaseUrl = import.meta.env.VITE_SUPABASE_URL;
+const supabaseKey = import.meta.env.VITE_SUPABASE_ANON_KEY;
 
 async function fetchAllItems() {
   try {

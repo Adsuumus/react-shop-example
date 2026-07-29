@@ -55,6 +55,10 @@ export function reducer(state, { type, payload }) {
     }
     case "TOGGLE_BASKET":
       return { ...state, showBasket: !state.showBasket };
+
+    case "CLOUSE_BASKET":
+      return { ...state, showBasket: false };
+
     default:
       return state;
   }
