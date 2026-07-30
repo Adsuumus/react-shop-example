@@ -1,30 +1,24 @@
-import { ShopContext } from "../context";
-import { useContext, useEffect, useState } from "react";
-import { login } from "../api/auth";
+import { useState } from "react";
+import { useLogin } from "../hooks/useAuthMutations";
+import { useNavigate } from "react-router-dom";
 
 function LoginPage() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const loginMutation = useLogin();
+  const navigate = useNavigate();
 
-  async function handleSubmit(e) {
+  const handleSubmit = (e) => {
     e.preventDefault();
-
-    try {
-      const data = await login(username, password);
-
-      console.log("USER:", data.user);
-
-      console.log("ACCESS TOKEN:", data.access_token);
-
-      console.log("REFRESH TOKEN:", data.refresh_token);
-
-      localStorage.setItem("access_token", data.access_token);
-    } catch (error) {
-      console.error(error.response?.data || error.message);
-
-      console.log("Неверный логин или пароль");
-    }
-  }
+    loginMutation.mutate(
+      { username, password },
+      {
+        onSuccess: () => {
+          navigate("/");
+        },
+      },
+    );
+  };
 
   return (
     <div className="h-screen bg-gray-900 flex items-center justify-center p-4">
@@ -56,7 +50,6 @@ function LoginPage() {
           </button>
 
           <p className="text-center text-gray-400 text-sm">
-            Нет аккаунта?{" "}
             <a href="#" className="text-blue-400">
               Регистрация
             </a>
