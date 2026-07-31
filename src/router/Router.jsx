@@ -8,6 +8,7 @@ import {
   About,
   Home,
   UserPage,
+  RegisterPage,
 } from "../pages";
 
 const router = createBrowserRouter(
@@ -21,6 +22,7 @@ const router = createBrowserRouter(
         { path: "contact", element: <Contact /> },
         { path: "/product/:id", element: <ItemPage /> },
         { path: "/login", element: <LoginPage /> },
+        { path: "/registration", element: <RegisterPage /> },
         { path: "/profile", element: <UserPage /> },
         { path: "*", element: <NotFound /> },
       ],

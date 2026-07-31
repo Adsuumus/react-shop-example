@@ -1,21 +1,23 @@
 import { useState } from "react";
-import { useLogin } from "../hooks/useAuthMutations";
+import { useRegister } from "../hooks/useRegister";
 import { useNavigate } from "react-router-dom";
 import { NavLink } from "react-router-dom";
 
-function LoginPage() {
+function RegisterPage() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
-  const loginMutation = useLogin();
+  const registerMutation = useRegister();
   const navigate = useNavigate();
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    loginMutation.mutate(
+    registerMutation.mutate(
       { username, password },
       {
-        onSuccess: () => {
-          navigate("/");
+        onSuccess: (data) => {
+          if (data.ok) {
+            navigate("/");
+          }
         },
       },
     );
@@ -24,7 +26,9 @@ function LoginPage() {
   return (
     <div className="h-screen bg-gray-900 flex items-center justify-center p-4">
       <div className="bg-gray-800 rounded-xl p-6 w-full max-w-sm">
-        <h1 className="text-2xl font-bold text-white text-center mb-6">Вход</h1>
+        <h1 className="text-2xl font-bold text-white text-center mb-6">
+          Регистрация
+        </h1>
 
         <form className="space-y-4" onSubmit={handleSubmit}>
           <input
@@ -47,12 +51,12 @@ function LoginPage() {
             type="submit"
             className="cursor-pointer w-full py-2 bg-blue-600 hover:bg-blue-700 rounded-lg text-white font-medium transition"
           >
-            Войти
+            Зарегестрироваться
           </button>
 
           <p className="text-center text-gray-400 text-sm">
-            <NavLink to="/registration" className="text-blue-400">
-              Регистрация
+            <NavLink to="/login" className="text-blue-400">
+              Вход
             </NavLink>
           </p>
         </form>
@@ -61,4 +65,4 @@ function LoginPage() {
   );
 }
 
-export { LoginPage };
+export { RegisterPage };

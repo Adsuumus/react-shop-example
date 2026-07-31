@@ -1,5 +1,33 @@
 import { setUserName, setAuthToken, clearAuth } from "../../utils/auth";
-import { login } from "../../api/authApi";
+import { login, register } from "../../api/authApi";
+
+async function signUp(username, password) {
+  try {
+    const data = await register(username, password);
+
+    if (data.access_token) {
+      setAuthToken(data.access_token);
+      setUserName(username);
+
+      return {
+        ok: true,
+        token: data.access_token,
+        username,
+        user: data.user,
+      };
+    }
+
+    return {
+      ok: false,
+      error: "Не удалось получить токен",
+    };
+  } catch (error) {
+    return {
+      ok: false,
+      error: error.response?.data?.msg || "Ошибка регистрации",
+    };
+  }
+}
 
 async function signIn(username, password) {
   try {
@@ -7,8 +35,6 @@ async function signIn(username, password) {
     const token = data.access_token;
 
     const displayName = data.user.user_metadata.display_name;
-
-    console.log(displayName);
 
     setAuthToken(token);
     setUserName(displayName);
@@ -24,4 +50,4 @@ function signOut() {
   clearAuth();
 }
 
-export { signIn, signOut };
+export { signUp, signIn, signOut };

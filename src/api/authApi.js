@@ -21,3 +21,26 @@ export async function login(username, password) {
 
   return response.data;
 }
+
+export async function register(name, password) {
+  const email = `${name}@user.local`;
+
+  const { data } = await axios.post(
+    `${import.meta.env.VITE_SUPABASE_URL}/auth/v1/signup`,
+    {
+      email,
+      password,
+      data: {
+        display_name: name,
+      },
+    },
+    {
+      headers: {
+        apikey: import.meta.env.VITE_SUPABASE_ANON_KEY,
+        "Content-Type": "application/json",
+      },
+    },
+  );
+
+  return data;
+}
