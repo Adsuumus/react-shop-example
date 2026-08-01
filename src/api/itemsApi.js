@@ -3,21 +3,6 @@ import axios from "axios";
 const supabaseUrl = import.meta.env.VITE_SUPABASE_URL;
 const supabaseKey = import.meta.env.VITE_SUPABASE_ANON_KEY;
 
-async function fetchAllItems() {
-  try {
-    const response = await axios.get(`${supabaseUrl}/rest/v1/shop_data`, {
-      headers: {
-        apikey: supabaseKey,
-        Authorization: `Bearer ${supabaseKey}`,
-        "Content-Type": "application/json",
-      },
-    });
-    return response.data;
-  } catch (error) {
-    console.error("Ошибка загрузки товаров:", error);
-  }
-}
-
 async function fetchItem(id) {
   try {
     const response = await axios.get(
@@ -67,4 +52,4 @@ async function fetchPage(page = 1, pageSize = 8) {
   };
 }
 
-export { fetchAllItems, fetchItem, fetchPage };
+export { fetchItem, fetchPage };

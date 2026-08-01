@@ -12,6 +12,7 @@ function Home() {
   const [searchParams, setSearchParams] = useSearchParams();
   const currentPage = Number(searchParams.get("page")) || 1;
   const [totalPages, setTotalPages] = useState(1);
+  const PAGE_SIZE = 8;
 
   function changePage(page) {
     console.log("change page:", page);
@@ -22,7 +23,7 @@ function Home() {
 
   useEffect(() => {
     setLoading(true);
-    fetchPage(currentPage)
+    fetchPage(currentPage, PAGE_SIZE)
       .then((result) => {
         setGoods(result.data);
         setTotalPages(result.totalPages);
@@ -31,16 +32,14 @@ function Home() {
       .finally(() => setLoading(false));
   }, [currentPage]);
 
-  if (loading) {
-    return <Preloader />;
-  }
-
   return (
     <Shop
+      loading={loading}
       goods={goods}
       currentPage={currentPage}
       totalPages={totalPages}
       onPageChange={changePage}
+      pageSize={PAGE_SIZE}
     />
   );
 }

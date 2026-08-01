@@ -7,6 +7,7 @@ function Item({ id, title, description, price, image, textBackgroundColor }) {
   const { addItem, incrementItem, decrimentItem, order } =
     useContext(ShopContext);
   const [isInitialBlock, setIsInitialBlock] = useState(false);
+  const [imageLoaded, setImageLoaded] = useState(false);
 
   const item = order.find((product) => product.id === id);
   const haveItem = !!item;
@@ -28,11 +29,17 @@ function Item({ id, title, description, price, image, textBackgroundColor }) {
         className="hover:ring-2 hover:ring-blue-500 transition rounded-lg overflow-hidden relative flex-1"
       >
         <Link to={`/product/${id}`}>
-          <img
-            src={image}
-            alt={title}
-            className="w-full h-auto object-contain transition-transform duration-300 group-hover:scale-120"
-          />
+          <div className="aspect-square overflow-hidden">
+            <img
+              onLoad={() => setImageLoaded(true)}
+              src={image}
+              alt={title}
+              className={`
+      w-full h-full object-contain transition-opacity duration-300
+      ${imageLoaded ? "opacity-100" : "opacity-0"}
+    `}
+            />
+          </div>
         </Link>
         <div className="p-5 pb-12">
           <Link to={`/product/${id}`}>
