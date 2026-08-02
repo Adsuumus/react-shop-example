@@ -1,5 +1,7 @@
 import { createContext, useReducer } from "react";
 import { reducer } from "./reducer";
+import { cartApi, incInCart } from "./api/cartApi";
+import { getID } from "./utils/auth";
 
 export const ShopContext = createContext();
 
@@ -12,6 +14,40 @@ const initialState = {
 export const ContextProvider = ({ children }) => {
   const [state, dispatch] = useReducer(reducer, initialState);
 
+  const id = getID();
+
+  const addItem = async (item) => {
+    const existingItem = state.order.find((el) => el.id === item.id);
+
+    const quantity = existingItem ? existingItem.quantity + 1 : 1;
+
+    dispatch({
+      type: "ADD_ITEM",
+      payload: item,
+    });
+
+    if (id) {
+      await cartApi(id, item.id, quantity);
+    }
+  };
+
+  const incrementItem = async (itemID) => {
+    const existingItem = state.order.find((el) => el.id === itemID);
+
+    if (!existingItem) return;
+
+    const quantity = existingItem.quantity + 1;
+
+    dispatch({
+      type: "INC_ITEM",
+      payload: { id: itemID },
+    });
+
+    if (id) {
+      await incInCart(id, itemID, quantity);
+    }
+  };
+
   const value = {
     ...state,
     setGoods: (goods) => dispatch({ type: "SET_GOODS", payload: goods }),
@@ -21,9 +57,8 @@ export const ContextProvider = ({ children }) => {
       dispatch({ type: "DEL_ITEM", payload: { id: itemID } }),
     decrimentItem: (itemID) =>
       dispatch({ type: "DEC_ITEM", payload: { id: itemID } }),
-    incrementItem: (itemID) =>
-      dispatch({ type: "INC_ITEM", payload: { id: itemID } }),
-    addItem: (item) => dispatch({ type: "ADD_ITEM", payload: item }),
+    incrementItem,
+    addItem,
   };
 
   return <ShopContext.Provider value={value}>{children}</ShopContext.Provider>;

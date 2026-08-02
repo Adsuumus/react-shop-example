@@ -1,14 +1,16 @@
 import axios from "axios";
 import { getAuthToken } from "../utils/auth";
 
-const baseURL = import.meta.env.VITE_API_URL ?? "";
+export const http = axios.create({
+  baseURL: `${import.meta.env.VITE_SUPABASE_URL}/rest/v1`,
+});
 
-export const http = axios.create({ baseURL });
-
-http.interceptors.request.use((cfg) => {
+http.interceptors.request.use((config) => {
   const token = getAuthToken();
-  if (token) {
-    cfg.headers.Authorization = `Bearer ${token}`;
-  }
-  return cfg;
+
+  config.headers.apikey = import.meta.env.VITE_SUPABASE_ANON_KEY;
+  config.headers.Authorization = `Bearer ${token}`;
+  config.headers["Content-Type"] = "application/json";
+
+  return config;
 });

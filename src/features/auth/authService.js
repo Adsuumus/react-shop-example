@@ -1,4 +1,4 @@
-import { setUserName, setAuthToken, clearAuth } from "../../utils/auth";
+import { setUserName, setAuthToken, setID, clearAuth } from "../../utils/auth";
 import { login, register } from "../../api/authApi";
 
 async function signUp(username, password) {
@@ -38,6 +38,7 @@ async function signIn(username, password) {
 
     setAuthToken(token);
     setUserName(displayName);
+    setID(data.user.id);
 
     return { ok: true, user: data.user, token, username: displayName };
   } catch (error) {

@@ -1,7 +1,6 @@
 import { useEffect, useContext, useState } from "react";
 import { ShopContext } from "../context";
 import { Shop } from "../components";
-import { Preloader } from "../components";
 import { fetchPage } from "../api/itemsApi";
 
 import { useSearchParams } from "react-router-dom";
@@ -15,7 +14,6 @@ function Home() {
   const PAGE_SIZE = 8;
 
   function changePage(page) {
-    console.log("change page:", page);
     setSearchParams({
       page: page,
     });
