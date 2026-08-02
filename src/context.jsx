@@ -1,6 +1,11 @@
-import { createContext, useReducer } from "react";
+import { createContext, useReducer, useEffect, useState } from "react";
 import { reducer } from "./reducer";
-import { cartApi, incInCart } from "./api/cartApi";
+import {
+  addItemtoCart,
+  changeQuantity,
+  removeFromCart,
+  getCart,
+} from "./api/cartApi";
 import { getID } from "./utils/auth";
 
 export const ShopContext = createContext();
@@ -13,8 +18,32 @@ const initialState = {
 
 export const ContextProvider = ({ children }) => {
   const [state, dispatch] = useReducer(reducer, initialState);
+  const [userId, setUserId] = useState(getID());
 
-  const id = getID();
+  useEffect(() => {
+    if (!userId) {
+      dispatch({
+        type: "SET_ORDER",
+        payload: [],
+      });
+      return;
+    }
+
+    const loadCart = async () => {
+      try {
+        const cart = await getCart(userId);
+
+        dispatch({
+          type: "SET_ORDER",
+          payload: cart,
+        });
+      } catch (error) {
+        console.error("Ошибка загрузки корзины:", error);
+      }
+    };
+
+    loadCart();
+  }, [userId]);
 
   const addItem = async (item) => {
     const existingItem = state.order.find((el) => el.id === item.id);
@@ -26,8 +55,12 @@ export const ContextProvider = ({ children }) => {
       payload: item,
     });
 
-    if (id) {
-      await cartApi(id, item.id, quantity);
+    if (!userId) return;
+
+    if (existingItem) {
+      await changeQuantity(userId, item.id, quantity);
+    } else {
+      await addItemtoCart(userId, item.id, item.title, item.price, quantity);
     }
   };
 
@@ -43,22 +76,53 @@ export const ContextProvider = ({ children }) => {
       payload: { id: itemID },
     });
 
-    if (id) {
-      await incInCart(id, itemID, quantity);
+    if (userId) {
+      await changeQuantity(userId, itemID, quantity);
+    }
+  };
+
+  const decrimentItem = async (itemID) => {
+    const existingItem = state.order.find((el) => el.id === itemID);
+
+    if (!existingItem) return;
+
+    if (existingItem.quantity < 2) {
+      delItem(itemID);
+    } else {
+      const quantity = existingItem.quantity - 1;
+
+      dispatch({
+        type: "DEC_ITEM",
+        payload: { id: itemID },
+      });
+
+      if (userId) {
+        await changeQuantity(userId, itemID, quantity);
+      }
+    }
+  };
+
+  const delItem = async (itemID) => {
+    dispatch({
+      type: "DEL_ITEM",
+      payload: { id: itemID },
+    });
+    if (userId) {
+      await removeFromCart(userId, itemID);
     }
   };
 
   const value = {
     ...state,
     setGoods: (goods) => dispatch({ type: "SET_GOODS", payload: goods }),
+    setOrder: (order) => dispatch({ type: "SET_ORDER", payload: order }),
     toggleBasket: () => dispatch({ type: "TOGGLE_BASKET" }),
     clouseBasket: () => dispatch({ type: "CLOUSE_BASKET" }),
-    delItem: (itemID) =>
-      dispatch({ type: "DEL_ITEM", payload: { id: itemID } }),
-    decrimentItem: (itemID) =>
-      dispatch({ type: "DEC_ITEM", payload: { id: itemID } }),
+    decrimentItem,
     incrementItem,
+    delItem,
     addItem,
+    setUserId,
   };
 
   return <ShopContext.Provider value={value}>{children}</ShopContext.Provider>;

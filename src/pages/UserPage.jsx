@@ -1,13 +1,17 @@
 import { useLogout } from "../hooks/useAuthMutations";
 import { useNavigate } from "react-router-dom";
+import { useContext } from "react";
+import { ShopContext } from "../context";
 
 function UserPage() {
   const logoutMutation = useLogout();
   const navigate = useNavigate();
+  const { setUserId } = useContext(ShopContext);
 
   const handleLogout = () => {
     logoutMutation.mutate(undefined, {
       onSuccess: () => {
+        setUserId(null);
         navigate("/");
       },
     });

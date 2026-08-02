@@ -1,20 +1,23 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
 import { useLogin } from "../hooks/useAuthMutations";
 import { useNavigate } from "react-router-dom";
 import { NavLink } from "react-router-dom";
+import { ShopContext } from "../context";
 
 function LoginPage() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const loginMutation = useLogin();
   const navigate = useNavigate();
+  const { setUserId } = useContext(ShopContext);
 
   const handleSubmit = (e) => {
     e.preventDefault();
     loginMutation.mutate(
       { username, password },
       {
-        onSuccess: () => {
+        onSuccess: (data) => {
+          setUserId(data.user.id);
           navigate("/");
         },
       },

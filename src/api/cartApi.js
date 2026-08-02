@@ -1,10 +1,12 @@
 import { http } from "./http";
 
-export async function addToCart(userId, itemId, quantity) {
+async function addItemtoCart(userId, itemId, title, price, quantity) {
   try {
     const { data } = await http.post("/cart_items", {
       user_id: userId,
       product_id: itemId,
+      title: title,
+      price: price,
       quantity,
     });
 
@@ -15,7 +17,7 @@ export async function addToCart(userId, itemId, quantity) {
   }
 }
 
-async function incInCart(userId, productId, quantity) {
+async function changeQuantity(userId, productId, quantity) {
   const { data } = await http.patch(
     `/cart_items?user_id=eq.${userId}&product_id=eq.${productId}`,
     {
@@ -25,7 +27,7 @@ async function incInCart(userId, productId, quantity) {
   return data;
 }
 
-export async function removeFromCart(userId, productId) {
+async function removeFromCart(userId, productId) {
   const { data } = await http.delete(
     `/cart_items?user_id=eq.${userId}&product_id=eq.${productId}`,
   );
@@ -33,4 +35,17 @@ export async function removeFromCart(userId, productId) {
   return data;
 }
 
-export { addToCart as cartApi, incInCart };
+async function getCart(userId) {
+  const { data } = await http.get(`/cart_items?user_id=eq.${userId}`);
+
+  return data.map((el) => {
+    return {
+      id: el.product_id,
+      price: el.price,
+      title: el.title,
+      quantity: el.quantity,
+    };
+  });
+}
+
+export { addItemtoCart, changeQuantity, removeFromCart, getCart };

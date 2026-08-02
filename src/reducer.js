@@ -2,6 +2,11 @@ export function reducer(state, { type, payload }) {
   switch (type) {
     case "SET_GOODS":
       return { ...state, goods: payload };
+    case "SET_ORDER":
+      return {
+        ...state,
+        order: payload,
+      };
     case "DEL_ITEM":
       return {
         ...state,
@@ -35,23 +40,14 @@ export function reducer(state, { type, payload }) {
       };
     }
     case "DEC_ITEM": {
-      const item = state.order.find((el) => el.id === payload.id);
-
-      if (item.quantity > 1) {
-        return {
-          ...state,
-          order: state.order.map((el) => {
-            return el.id === payload.id
-              ? { ...el, quantity: el.quantity - 1 }
-              : el;
-          }),
-        };
-      } else {
-        return {
-          ...state,
-          order: state.order.filter((el) => el.id !== payload.id),
-        };
-      }
+      return {
+        ...state,
+        order: state.order.map((el) => {
+          return el.id === payload.id
+            ? { ...el, quantity: el.quantity - 1 }
+            : el;
+        }),
+      };
     }
     case "TOGGLE_BASKET":
       return { ...state, showBasket: !state.showBasket };
