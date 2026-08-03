@@ -18,7 +18,7 @@ export function reducer(state, { type, payload }) {
       if (existingIndex === -1) {
         return {
           ...state,
-          order: [...state.order, { ...payload, quantity: 1 }],
+          order: [{ ...payload, quantity: 1 }, ...state.order],
         };
       }
 
@@ -49,8 +49,8 @@ export function reducer(state, { type, payload }) {
         }),
       };
     }
-    case "TOGGLE_BASKET":
-      return { ...state, showBasket: !state.showBasket };
+    case "OPEN_BASKET":
+      return { ...state, showBasket: true };
 
     case "CLOUSE_BASKET":
       return { ...state, showBasket: false };

@@ -2,6 +2,7 @@ import { NavLink } from "react-router-dom";
 import { Cart } from "../features/Basket/Cart";
 import { Search } from "..";
 import { useAuth } from "../../context/authContext";
+import { Basket } from "../index";
 
 const navClass = ({ isActive }) =>
   `whitespace-nowrap transition cursor-pointer ${
@@ -9,7 +10,7 @@ const navClass = ({ isActive }) =>
   }`;
 
 function Header() {
-  const { isAuthenticated, username, token, logout } = useAuth();
+  const { isAuthenticated, username } = useAuth();
 
   return (
     <header className="sticky top-0 z-50 bg-gray-900 border-b border-gray-800">
@@ -68,7 +69,10 @@ function Header() {
               </NavLink>
             )}
 
-            <Cart />
+            <div className="relative">
+              <Cart />
+              <Basket />
+            </div>
           </div>
         </div>
 

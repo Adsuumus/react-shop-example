@@ -35,7 +35,7 @@ export const ContextProvider = ({ children }) => {
 
         dispatch({
           type: "SET_ORDER",
-          payload: cart,
+          payload: cart ?? [],
         });
       } catch (error) {
         console.error("Ошибка загрузки корзины:", error);
@@ -60,7 +60,14 @@ export const ContextProvider = ({ children }) => {
     if (existingItem) {
       await changeQuantity(userId, item.id, quantity);
     } else {
-      await addItemtoCart(userId, item.id, item.title, item.price, quantity);
+      await addItemtoCart(
+        userId,
+        item.id,
+        item.title,
+        item.price,
+        quantity,
+        item.image,
+      );
     }
   };
 
@@ -81,7 +88,7 @@ export const ContextProvider = ({ children }) => {
     }
   };
 
-  const decrimentItem = async (itemID) => {
+  const decrementItem = async (itemID) => {
     const existingItem = state.order.find((el) => el.id === itemID);
 
     if (!existingItem) return;
@@ -116,9 +123,9 @@ export const ContextProvider = ({ children }) => {
     ...state,
     setGoods: (goods) => dispatch({ type: "SET_GOODS", payload: goods }),
     setOrder: (order) => dispatch({ type: "SET_ORDER", payload: order }),
-    toggleBasket: () => dispatch({ type: "TOGGLE_BASKET" }),
+    openBasket: () => dispatch({ type: "OPEN_BASKET" }),
     clouseBasket: () => dispatch({ type: "CLOUSE_BASKET" }),
-    decrimentItem,
+    decrementItem,
     incrementItem,
     delItem,
     addItem,

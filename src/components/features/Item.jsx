@@ -4,7 +4,7 @@ import { ShopContext } from "../../context";
 import { Link } from "react-router-dom";
 
 function Item({ id, title, description, price, image, textBackgroundColor }) {
-  const { addItem, incrementItem, decrimentItem, order } =
+  const { addItem, incrementItem, decrementItem, order, openBasket } =
     useContext(ShopContext);
 
   const [isInitialBlock, setIsInitialBlock] = useState(false);
@@ -43,7 +43,7 @@ function Item({ id, title, description, price, image, textBackgroundColor }) {
           </div>
         </Link>
 
-        <div className="p-5 pb-12">
+        <div className="p-5 pt-0 pb-12">
           <Link to={`/product/${id}`}>
             <h2 className="text-lg text-white font-semibold mb-1 line-clamp-2">
               {title}
@@ -68,7 +68,10 @@ function Item({ id, title, description, price, image, textBackgroundColor }) {
             <div className="flex bg-gray-700 rounded h-full">
               <button
                 disabled={isInitialBlock}
-                onClick={() => decrimentItem(id)}
+                onClick={() => {
+                  decrementItem(id);
+                  openBasket();
+                }}
                 className="cursor-pointer flex-1 hover:bg-gray-600 rounded-l transition-colors text-white font-bold text-lg hover:scale-105"
               >
                 −
@@ -79,7 +82,10 @@ function Item({ id, title, description, price, image, textBackgroundColor }) {
               </span>
 
               <button
-                onClick={() => incrementItem(id)}
+                onClick={() => {
+                  incrementItem(id);
+                  openBasket();
+                }}
                 className="cursor-pointer flex-1 hover:bg-gray-600 rounded-r transition-colors text-white font-bold text-lg hover:scale-102"
               >
                 +
@@ -87,7 +93,10 @@ function Item({ id, title, description, price, image, textBackgroundColor }) {
             </div>
           ) : (
             <button
-              onClick={() => addItem({ id, title, price })}
+              onClick={() => {
+                addItem({ id, title, price, image });
+                openBasket();
+              }}
               className="cursor-pointer w-full h-full bg-blue-600 hover:bg-blue-700 text-white rounded text-sm transition-colors font-medium"
             >
               Купить

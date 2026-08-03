@@ -1,7 +1,7 @@
 import { useEffect, useContext, useState } from "react";
 import { ShopContext } from "../context";
 import { Shop } from "../components";
-import { fetchPage } from "../api/itemsApi";
+import { fetchPage } from "../api/storeApi";
 
 import { useSearchParams } from "react-router-dom";
 

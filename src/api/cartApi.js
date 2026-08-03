@@ -1,6 +1,6 @@
 import { restHttp } from "./http";
 
-async function addItemtoCart(userId, itemId, title, price, quantity) {
+async function addItemtoCart(userId, itemId, title, price, quantity, image) {
   try {
     const { data } = await restHttp.post("/cart_items", {
       user_id: userId,
@@ -8,6 +8,7 @@ async function addItemtoCart(userId, itemId, title, price, quantity) {
       title: title,
       price: price,
       quantity,
+      image: image,
     });
 
     return data;
@@ -44,6 +45,7 @@ async function getCart(userId) {
       price: el.price,
       title: el.title,
       quantity: el.quantity,
+      image: el.image,
     };
   });
 }
