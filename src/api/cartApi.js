@@ -1,8 +1,8 @@
-import { http } from "./http";
+import { restHttp } from "./http";
 
 async function addItemtoCart(userId, itemId, title, price, quantity) {
   try {
-    const { data } = await http.post("/cart_items", {
+    const { data } = await restHttp.post("/cart_items", {
       user_id: userId,
       product_id: itemId,
       title: title,
@@ -18,7 +18,7 @@ async function addItemtoCart(userId, itemId, title, price, quantity) {
 }
 
 async function changeQuantity(userId, productId, quantity) {
-  const { data } = await http.patch(
+  const { data } = await restHttp.patch(
     `/cart_items?user_id=eq.${userId}&product_id=eq.${productId}`,
     {
       quantity,
@@ -28,7 +28,7 @@ async function changeQuantity(userId, productId, quantity) {
 }
 
 async function removeFromCart(userId, productId) {
-  const { data } = await http.delete(
+  const { data } = await restHttp.delete(
     `/cart_items?user_id=eq.${userId}&product_id=eq.${productId}`,
   );
 
@@ -36,7 +36,7 @@ async function removeFromCart(userId, productId) {
 }
 
 async function getCart(userId) {
-  const { data } = await http.get(`/cart_items?user_id=eq.${userId}`);
+  const { data } = await restHttp.get(`/cart_items?user_id=eq.${userId}`);
 
   return data.map((el) => {
     return {
