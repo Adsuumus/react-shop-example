@@ -7,3 +7,4 @@ export { LoginPage } from "./LoginPage";
 export { UserPage } from "./UserPage";
 export { RegisterPage } from "./RegisterPage";
 export { Basket } from "./Basket";
+export { SearchPage } from "./SearchPage";

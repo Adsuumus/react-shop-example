@@ -1,12 +1,12 @@
 import { useEffect, useContext, useState } from "react";
 import { ShopContext } from "../context";
 import { Shop } from "../components";
-import { fetchPage } from "../api/storeApi";
+import { fetchPage, searchAPI } from "../api/index.js";
 
 import { useSearchParams } from "react-router-dom";
 
 function Home() {
-  const { goods, setGoods } = useContext(ShopContext);
+  const { goods, setGoods, searchQuery } = useContext(ShopContext);
   const [loading, setLoading] = useState(true);
   const [searchParams, setSearchParams] = useSearchParams();
   const currentPage = Number(searchParams.get("page")) || 1;
@@ -20,15 +20,30 @@ function Home() {
   }
 
   useEffect(() => {
-    setLoading(true);
-    fetchPage(currentPage, PAGE_SIZE)
-      .then((result) => {
-        setGoods(result.data);
-        setTotalPages(result.totalPages);
-      })
-      .catch((err) => console.error("Ошибка:", err))
-      .finally(() => setLoading(false));
-  }, [currentPage]);
+    async function loadGoods() {
+      setLoading(true);
+
+      try {
+        if (searchQuery.trim()) {
+          const products = await searchAPI(searchQuery);
+
+          setGoods(products);
+          setTotalPages(1);
+        } else {
+          const result = await fetchPage(currentPage, PAGE_SIZE);
+
+          setGoods(result.data);
+          setTotalPages(result.totalPages);
+        }
+      } catch (error) {
+        console.error("Ошибка:", error);
+      } finally {
+        setLoading(false);
+      }
+    }
+
+    loadGoods();
+  }, [currentPage, searchQuery]);
 
   return (
     <Shop

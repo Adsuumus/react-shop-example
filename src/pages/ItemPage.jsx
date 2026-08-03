@@ -15,7 +15,7 @@ function ItemPage() {
   const haveItem = !!cartItem;
 
   return (
-    <div className="min-h-screen text-white px-6 py-10">
+    <div className="text-white pt-15">
       <div className="max-w-6xl mx-auto">
         {!item ? (
           <div className="min-h-[400px] flex items-center justify-center">

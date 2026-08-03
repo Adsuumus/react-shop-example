@@ -10,6 +10,7 @@ import {
   UserPage,
   RegisterPage,
   Basket,
+  SearchPage,
 } from "../pages";
 
 const router = createBrowserRouter(
@@ -26,6 +27,7 @@ const router = createBrowserRouter(
         { path: "registration", element: <RegisterPage /> },
         { path: "profile", element: <UserPage /> },
         { path: "basket", element: <Basket /> },
+        { path: "search", element: <SearchPage /> },
         { path: "*", element: <NotFound /> },
       ],
     },

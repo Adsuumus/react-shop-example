@@ -3,12 +3,14 @@ import { Outlet, ScrollRestoration } from "react-router-dom";
 
 function Layout() {
   return (
-    <>
+    <div className="min-h-screen flex flex-col">
       <ScrollRestoration />
       <Header />
-      <Outlet />
+      <div className="flex-1">
+        <Outlet />
+      </div>
       <Footer />
-    </>
+    </div>
   );
 }
 
