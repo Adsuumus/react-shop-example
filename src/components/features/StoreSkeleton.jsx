@@ -1,10 +1,10 @@
-function Skeleton() {
+function StoreSkeleton() {
   return (
     <div className="flex flex-col h-[390px] relative animate-pulse">
       <div className="rounded-lg overflow-hidden bg-gray-800 h-full relative">
         <div className="h-[250px] w-full bg-gray-700" />
 
-        <div className="p-5 pb-12">
+        <div className="p-5 pt-2 pb-12">
           <div className="h-[28px] w-3/4 bg-gray-700 rounded mb-2" />
         </div>
       </div>
@@ -17,4 +17,4 @@ function Skeleton() {
   );
 }
 
-export { Skeleton };
+export { StoreSkeleton };

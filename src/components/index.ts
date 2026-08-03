@@ -6,3 +6,4 @@ export { Header} from './common/Header'
 export { Footer } from './common/Footer'
 export { Search } from './common/SearchForm'
 export { Preloader } from './common/Preloader'
+export { StoreSkeleton } from "./features/StoreSkeleton"

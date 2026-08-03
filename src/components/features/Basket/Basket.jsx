@@ -4,7 +4,7 @@ import { BasketItem } from "./BasketItem";
 import { NavLink } from "react-router-dom";
 
 function Basket() {
-  const { order, showBasket, clouseBasket } = useContext(ShopContext);
+  const { order, showBasket, closeBasket } = useContext(ShopContext);
 
   const basketRef = useRef(null);
 
@@ -19,7 +19,7 @@ function Basket() {
         basketRef.current &&
         !basketRef.current.contains(event.target)
       ) {
-        clouseBasket();
+        closeBasket();
       }
     }
 
@@ -28,7 +28,11 @@ function Basket() {
     return () => {
       document.removeEventListener("mousedown", handleClickOutside);
     };
-  }, [showBasket, clouseBasket]);
+  }, [showBasket, closeBasket]);
+
+  useEffect(() => {
+    if (order.length < 1) closeBasket();
+  }, [order]);
 
   return (
     <div
@@ -48,7 +52,7 @@ function Basket() {
         {order.length ? (
           order.map((item) => <BasketItem key={item.id} {...item} />)
         ) : (
-          <BasketItem title="Корзина пуста" />
+          <BasketItem key="null" title="Корзина пуста" />
         )}
       </ul>
 
@@ -57,10 +61,10 @@ function Basket() {
 
         <NavLink
           to="/basket"
-          onClick={clouseBasket}
+          onClick={closeBasket}
           className="px-3 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-md text-sm transition-colors"
         >
-          Перейти в корзину
+          В корзину
         </NavLink>
       </div>
     </div>

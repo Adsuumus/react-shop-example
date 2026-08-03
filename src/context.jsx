@@ -124,7 +124,7 @@ export const ContextProvider = ({ children }) => {
     setGoods: (goods) => dispatch({ type: "SET_GOODS", payload: goods }),
     setOrder: (order) => dispatch({ type: "SET_ORDER", payload: order }),
     openBasket: () => dispatch({ type: "OPEN_BASKET" }),
-    clouseBasket: () => dispatch({ type: "CLOUSE_BASKET" }),
+    closeBasket: () => dispatch({ type: "CLOUSE_BASKET" }),
     decrementItem,
     incrementItem,
     delItem,
