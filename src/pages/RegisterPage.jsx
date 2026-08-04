@@ -14,10 +14,8 @@ function RegisterPage() {
     registerMutation.mutate(
       { username, password },
       {
-        onSuccess: (data) => {
-          if (data.ok) {
-            navigate("/");
-          }
+        onSuccess: () => {
+          navigate("/");
         },
       },
     );
@@ -46,6 +44,12 @@ function RegisterPage() {
             className="w-full px-4 py-2 bg-gray-700 rounded-lg text-white placeholder-gray-400 border border-gray-600 focus:outline-none focus:ring-2 focus:ring-blue-500"
             onChange={(e) => setPassword(e.target.value)}
           />
+
+          {registerMutation.isError && (
+            <p className="text-sm text-red-400">
+              {registerMutation.error.message}
+            </p>
+          )}
 
           <button
             type="submit"

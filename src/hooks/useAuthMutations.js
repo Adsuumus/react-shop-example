@@ -9,10 +9,8 @@ export function useLogin() {
   return useMutation({
     mutationFn: ({ username, password }) => signIn(username, password),
     onSuccess: (data) => {
-      if (data.ok) {
-        login(data.token, data.username);
-        queryClient.invalidateQueries();
-      }
+      login(data.token, data.username);
+      queryClient.invalidateQueries();
     },
   });
 }
@@ -22,10 +20,7 @@ export function useLogout() {
   const queryClient = useQueryClient();
 
   return useMutation({
-    mutationFn: () => {
-      signOut();
-      return Promise.resolve();
-    },
+    mutationFn: signOut,
     onSettled: () => {
       logout();
       queryClient.clear();

@@ -1,5 +1,6 @@
 import { setUserName, setAuthToken, setID, clearAuth } from "../../utils/auth";
 import { login, register } from "../../api/authApi";
+import { apiError } from "../../api/apiError";
 
 async function signUp(username, password) {
   try {
@@ -17,33 +18,31 @@ async function signUp(username, password) {
       };
     }
 
-    return {
-      ok: false,
-      error: "Не удалось получить токен",
-    };
+    throw new Error("Не удалось получить токен");
   } catch (error) {
-    return {
-      ok: false,
-      error: error.response?.data?.msg || "Ошибка регистрации",
-    };
+    throw apiError(error);
   }
 }
 
 async function signIn(username, password) {
   try {
     const data = await login(username, password);
-    const token = data.access_token;
 
+    const token = data.access_token;
     const displayName = data.user.user_metadata.display_name;
 
     setAuthToken(token);
     setUserName(displayName);
     setID(data.user.id);
 
-    return { ok: true, user: data.user, token, username: displayName };
+    return {
+      ok: true,
+      user: data.user,
+      token,
+      username: displayName,
+    };
   } catch (error) {
-    const message = error.response?.data?.message || "Ошибка авторизации";
-    return { ok: false, error: message };
+    throw apiError(error);
   }
 }
 

@@ -45,7 +45,11 @@ function LoginPage() {
             className="w-full px-4 py-2 bg-gray-700 rounded-lg text-white placeholder-gray-400 border border-gray-600 focus:outline-none focus:ring-2 focus:ring-blue-500"
             onChange={(e) => setPassword(e.target.value)}
           />
-
+          {loginMutation.isError && (
+            <p className="text-sm text-red-400">
+              {loginMutation.error.message}
+            </p>
+          )}
           <button
             type="submit"
             className="cursor-pointer w-full py-2 bg-blue-600 hover:bg-blue-700 rounded-lg text-white font-medium transition"
@@ -53,9 +57,12 @@ function LoginPage() {
             Войти
           </button>
 
-          <p className="text-center text-gray-400 text-sm">
-            <NavLink to="/registration" className="text-blue-400">
-              Регистрация
+          <p className="mt-4 text-center text-sm text-gray-400">
+            <NavLink
+              to="/registration"
+              className="text-blue-400 hover:underline"
+            >
+              Зарегистрироваться
             </NavLink>
           </p>
         </form>

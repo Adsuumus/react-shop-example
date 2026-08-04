@@ -11,7 +11,6 @@ export function useRegister() {
 
     onSuccess: (data) => {
       if (!data.ok) return;
-
       if (data.token) {
         login(data.token, data.username);
         queryClient.invalidateQueries();
