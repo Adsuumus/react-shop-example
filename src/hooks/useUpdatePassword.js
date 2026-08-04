@@ -1,8 +1,17 @@
 import { useMutation } from "@tanstack/react-query";
 import { changePassword } from "../api/userAPI";
+import { apiError } from "../api/apiError";
 
-export function useUpdatePassword() {
+function useUpdatePassword() {
   return useMutation({
-    mutationFn: changePassword,
+    mutationFn: async (password) => {
+      try {
+        return await changePassword(password);
+      } catch (error) {
+        throw apiError(error);
+      }
+    },
   });
 }
+
+export { useUpdatePassword };

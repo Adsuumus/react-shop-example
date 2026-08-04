@@ -3,10 +3,22 @@ import { useNavigate } from "react-router-dom";
 import { useContext, useState } from "react";
 import { ShopContext } from "../context";
 import { useUpdatePassword } from "../hooks/useUpdatePassword";
+import { z } from "zod";
+
+const passwordSchema = z
+  .object({
+    password: z.string().min(1, "Введите пароль"),
+    passwordRepeat: z.string().min(1, "Повторите пароль"),
+  })
+  .refine((data) => data.password === data.passwordRepeat, {
+    message: "Пароли не совпадают",
+    path: ["passwordRepeat"],
+  });
 
 function UserPage() {
   const [password, setPassword] = useState("");
   const [passwordRepeat, setPasswordRepeat] = useState("");
+  const [alertPassword, setAlertPassword] = useState("");
 
   const logoutMutation = useLogout();
   const navigate = useNavigate();
@@ -25,12 +37,31 @@ function UserPage() {
   const handlePasswordSubmit = (e) => {
     e.preventDefault();
 
-    if (password !== passwordRepeat) {
-      alert("Пароли не совпадают");
+    const result = passwordSchema.safeParse({
+      password,
+      passwordRepeat,
+    });
+
+    if (!result.success) {
+      setAlertPassword(result.error.issues[0].message);
       return;
     }
 
-    updatePasswordMutation.mutate(password);
+    updatePasswordMutation.mutate(password, {
+      onSuccess: () => {
+        setPassword("");
+        setPasswordRepeat("");
+
+        setTimeout(() => {
+          updatePasswordMutation.reset();
+        }, 3000);
+      },
+    });
+  };
+
+  const clearPasswordMessages = () => {
+    setAlertPassword(false);
+    updatePasswordMutation.reset();
   };
 
   return (
@@ -58,22 +89,22 @@ function UserPage() {
           <div>
             <h1 className="text-3xl font-semibold">Личный кабинет</h1>
 
-            <p className="mt-2 text-zinc-400">
-              Управление профилем и настройками аккаунта
-            </p>
+            <p className="mt-2 text-zinc-400">Управление профилем</p>
           </div>
         </div>
 
-        {/* Настройки */}
         <div className="grid md:grid-cols-2 gap-6">
-          {/* Смена пароля */}
           <div className="rounded-2xl bg-zinc-900 border border-zinc-800 p-6">
             <h2 className="text-xl font-medium mb-4">Смена пароля</h2>
 
             <form onSubmit={handlePasswordSubmit} className="space-y-3">
               <input
                 value={password}
-                onChange={(e) => setPassword(e.target.value)}
+                onChange={(e) => {
+                  setPassword(e.target.value);
+                  clearPasswordMessages();
+                }}
+                onFocus={clearPasswordMessages}
                 type="password"
                 placeholder="Новый пароль"
                 className="
@@ -90,7 +121,11 @@ function UserPage() {
               <input
                 type="password"
                 value={passwordRepeat}
-                onChange={(e) => setPasswordRepeat(e.target.value)}
+                onChange={(e) => {
+                  setPasswordRepeat(e.target.value);
+                  clearPasswordMessages();
+                }}
+                onFocus={clearPasswordMessages}
                 placeholder="Повторите пароль"
                 className="
                   w-full
@@ -103,24 +138,40 @@ function UserPage() {
                 "
               />
 
+              {alertPassword ? (
+                <p className="text-sm text-red-400">{alertPassword}</p>
+              ) : updatePasswordMutation.isError ? (
+                <p className="text-sm text-red-400">
+                  {updatePasswordMutation.error.message}
+                </p>
+              ) : null}
+
+              {updatePasswordMutation.isSuccess && (
+                <p className="text-sm text-green-400">Пароль изменен</p>
+              )}
+
               <button
+                disabled={updatePasswordMutation.isPending}
                 className="
-                  w-full
-                  rounded-xl
-                  bg-blue-600
-                  hover:bg-blue-700
-                  py-3
-                  font-medium
-                  transition
-                "
+    w-full
+    rounded-xl
+    bg-blue-600
+    hover:bg-blue-700
+    disabled:opacity-50
+    py-3
+    font-medium
+    transition
+    cursor-pointer
+  "
               >
-                Изменить пароль
+                {updatePasswordMutation.isPending
+                  ? "Сохраняем..."
+                  : "Изменить пароль"}
               </button>
             </form>
           </div>
         </div>
 
-        {/* История действий */}
         <div className="rounded-2xl bg-zinc-900 border border-zinc-800 p-6">
           <h2 className="text-xl font-medium mb-5">История</h2>
 
