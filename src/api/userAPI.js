@@ -1,4 +1,4 @@
-import { authHttp } from "./http";
+import { authHttp, restHttp } from "./http";
 
 async function changePassword(password) {
   const { data } = await authHttp.put("/user", {
@@ -8,4 +8,8 @@ async function changePassword(password) {
   return data;
 }
 
-export { changePassword };
+async function getUserProfile() {
+  return authHttp.get("/user");
+}
+
+export { getUserProfile, changePassword };

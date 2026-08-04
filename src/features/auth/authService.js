@@ -27,7 +27,7 @@ async function signUp(username, password) {
 async function signIn(username, password) {
   try {
     const data = await login(username, password);
-
+    console.log(data);
     const token = data.access_token;
     const displayName = data.user.user_metadata.display_name;
 

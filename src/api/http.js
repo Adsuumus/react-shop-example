@@ -1,5 +1,6 @@
 import axios from "axios";
 import { getAuthToken } from "../utils/auth";
+import { handleAuthError } from "./interceptors";
 
 const config = {
   headers: {
@@ -18,6 +19,8 @@ const addAuth = (instance) => {
 
     return config;
   });
+
+  instance.interceptors.response.use((response) => response, handleAuthError);
 
   return instance;
 };
