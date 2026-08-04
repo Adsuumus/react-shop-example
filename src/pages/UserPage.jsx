@@ -39,7 +39,6 @@ function UserPage() {
   useEffect(() => {
     async function loadUser() {
       const response = await getUserProfile();
-      console.log(response.data);
       setUserData(response.data);
     }
 

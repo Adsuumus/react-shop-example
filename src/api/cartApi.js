@@ -50,4 +50,20 @@ async function getCart(userId) {
   });
 }
 
-export { addItemtoCart, changeQuantity, removeFromCart, getCart };
+async function setCart(userId, cart) {
+  await restHttp.delete(`/cart_items?user_id=eq.${userId}`);
+
+  await restHttp.post(
+    "/cart_items",
+    cart.map((item) => ({
+      user_id: userId,
+      product_id: item.id,
+      title: item.title,
+      price: item.price,
+      quantity: item.quantity,
+      image: item.image,
+    })),
+  );
+}
+
+export { addItemtoCart, changeQuantity, removeFromCart, getCart, setCart };

@@ -1,10 +1,12 @@
 import { createContext, useReducer, useEffect, useState } from "react";
 import { reducer } from "./reducer";
+import { mergeCarts } from "./utils/mergeCarts";
 import {
   addItemtoCart,
   changeQuantity,
   removeFromCart,
   getCart,
+  setCart,
 } from "./api/cartApi";
 import { getID } from "./utils/auth";
 
@@ -12,7 +14,7 @@ export const ShopContext = createContext();
 
 const initialState = {
   goods: [],
-  order: [],
+  order: getID() ? [] : JSON.parse(localStorage.getItem("cart") || "[]"),
   showBasket: false,
 };
 
@@ -22,28 +24,51 @@ export const ContextProvider = ({ children }) => {
 
   useEffect(() => {
     if (!userId) {
+      const localCart = JSON.parse(localStorage.getItem("cart") || "[]");
+
       dispatch({
         type: "SET_ORDER",
-        payload: [],
+        payload: localCart,
       });
+
       return;
     }
 
     const loadCart = async () => {
-      try {
-        const cart = await getCart(userId);
+      if (!userId) {
+        const localCart = JSON.parse(localStorage.getItem("cart") || "[]");
 
         dispatch({
           type: "SET_ORDER",
-          payload: cart ?? [],
+          payload: localCart,
         });
-      } catch (error) {
-        console.error("Ошибка загрузки корзины:", error);
+
+        return;
       }
+
+      const localCart = JSON.parse(localStorage.getItem("cart") || "[]");
+      let cart = await getCart(userId);
+
+      if (localCart.length) {
+        cart = mergeCarts(cart, localCart);
+        await setCart(userId, cart);
+        localStorage.removeItem("cart");
+      }
+
+      dispatch({
+        type: "SET_ORDER",
+        payload: cart,
+      });
     };
 
     loadCart();
   }, [userId]);
+
+  useEffect(() => {
+    if (!userId) {
+      localStorage.setItem("cart", JSON.stringify(state.order));
+    }
+  }, [state.order, userId]);
 
   const addItem = async (item) => {
     const existingItem = state.order.find((el) => el.id === item.id);
