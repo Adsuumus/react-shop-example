@@ -24,17 +24,10 @@ function Home() {
       setLoading(true);
 
       try {
-        if (searchQuery.trim()) {
-          const products = await searchAPI(searchQuery);
+        const result = await fetchPage(currentPage, PAGE_SIZE);
 
-          setGoods(products);
-          setTotalPages(1);
-        } else {
-          const result = await fetchPage(currentPage, PAGE_SIZE);
-
-          setGoods(result.data);
-          setTotalPages(result.totalPages);
-        }
+        setGoods(result.data);
+        setTotalPages(result.totalPages);
       } catch (error) {
         console.error("Ошибка:", error);
       } finally {
