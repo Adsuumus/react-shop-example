@@ -15,7 +15,7 @@ function RegisterPage() {
       { username, password },
       {
         onSuccess: () => {
-          navigate("/");
+          navigate("/login");
         },
       },
     );
@@ -28,7 +28,7 @@ function RegisterPage() {
           Регистрация
         </h1>
 
-        <form className="space-y-4" onSubmit={handleSubmit}>
+        <form className="space-y-3" onSubmit={handleSubmit}>
           <input
             placeholder="Логин"
             value={username}
@@ -37,25 +37,29 @@ function RegisterPage() {
             onChange={(e) => setUsername(e.target.value)}
           />
 
-          <input
-            type="password"
-            placeholder="Пароль"
-            value={password}
-            className="w-full px-4 py-2 bg-gray-700 rounded-lg text-white placeholder-gray-400 border border-gray-600 focus:outline-none focus:ring-2 focus:ring-blue-500"
-            onChange={(e) => setPassword(e.target.value)}
-          />
+          <div>
+            <input
+              type="password"
+              placeholder="Пароль"
+              value={password}
+              className="w-full px-4 py-2 bg-gray-700 rounded-lg text-white placeholder-gray-400 border border-gray-600 focus:outline-none focus:ring-2 focus:ring-blue-500"
+              onChange={(e) => setPassword(e.target.value)}
+            />
 
-          {registerMutation.isError && (
-            <p className="text-sm text-red-400">
-              {registerMutation.error.message}
-            </p>
-          )}
+            <div className="h-4 mt-1">
+              {registerMutation.isError && (
+                <p className="text-sm text-red-400">
+                  {registerMutation.error.message}
+                </p>
+              )}
+            </div>
+          </div>
 
           <button
             type="submit"
             className="cursor-pointer w-full py-2 bg-blue-600 hover:bg-blue-700 rounded-lg text-white font-medium transition"
           >
-            Зарегестрироваться
+            Зарегистрироваться
           </button>
 
           <p className="text-center text-gray-400 text-sm">
