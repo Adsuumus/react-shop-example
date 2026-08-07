@@ -6,5 +6,5 @@ export { NotFound } from "./NotFound";
 export { LoginPage } from "./LoginPage";
 export { UserPage } from "./UserPage";
 export { RegisterPage } from "./RegisterPage";
-export { Basket } from "./Basket";
+export { BasketPage } from "./BasketPage";
 export { SearchPage } from "./SearchPage";

@@ -1,9 +1,7 @@
-const Preloader = () => {
+export function Preloader() {
   return (
-    <div className="flex items-center justify-center py-20">
-      <div className="w-10 h-10 border-4 border-gray-600 border-t-blue-500 rounded-full animate-spin" />
+    <div className="flex h-64 items-center justify-center">
+      <span className="loading loading-spinner loading-lg"></span>
     </div>
   );
-};
-
-export { Preloader };
+}

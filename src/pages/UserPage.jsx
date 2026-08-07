@@ -1,10 +1,14 @@
 import { useLogout } from "../hooks/useAuthMutations";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, NavLink } from "react-router-dom";
 import { useContext, useState, useEffect } from "react";
-import { ShopContext } from "../context";
+import { ShopContext } from "@/context";
+import { useAuth } from "../context/authContext";
 import { useUpdatePassword } from "../hooks/useUpdatePassword";
 import { z } from "zod";
 import { getUserProfile } from "../api/userAPI";
+import { Clock, Calendar, ShoppingCart, ArrowRight, Lock } from "lucide-react";
+import { StatCard } from "@/components/cards/StatCard";
+import { formatDate } from "@/utils/formatters";
 
 const passwordSchema = z
   .object({
@@ -16,30 +20,25 @@ const passwordSchema = z
     path: ["passwordRepeat"],
   });
 
-export function formatDate(date) {
-  if (!date) return null;
-  return new Intl.DateTimeFormat("ru-RU", {
-    day: "numeric",
-    month: "long",
-    year: "numeric",
-    hour: "2-digit",
-    minute: "2-digit",
-  }).format(new Date(date));
-}
-
 function UserPage() {
   const [password, setPassword] = useState("");
   const [passwordRepeat, setPasswordRepeat] = useState("");
-  const [alertPassword, setAlertPassword] = useState("");
+  const [alertPassword, setAlertPassword] = useState(null);
   const logoutMutation = useLogout();
   const navigate = useNavigate();
-  const { setUserId } = useContext(ShopContext);
+  const { setUserId, order } = useContext(ShopContext);
+  const { username } = useAuth();
   const [userData, setUserData] = useState(null);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     async function loadUser() {
-      const response = await getUserProfile();
-      setUserData(response.data);
+      try {
+        const response = await getUserProfile();
+        setUserData(response.data);
+      } finally {
+        setIsLoading(false);
+      }
     }
 
     loadUser();
@@ -64,7 +63,9 @@ function UserPage() {
     });
 
     if (!result.success) {
-      setAlertPassword(result.error.issues[0].message);
+      const issue = result.error.issues[0];
+
+      setAlertPassword({ field: issue.path[0], message: issue.message });
       return;
     }
 
@@ -81,41 +82,107 @@ function UserPage() {
   };
 
   const clearPasswordMessages = () => {
-    setAlertPassword(false);
+    setAlertPassword(null);
     updatePasswordMutation.reset();
   };
 
+  const displayName = username || userData?.email?.split("@")[0] || "Профиль";
+  const avatarLetter = displayName.trim().charAt(0) || "?";
+  const cartCount = order?.reduce((sum, item) => sum + item.quantity, 0) ?? 0;
+
   return (
-    <div className="min-h-screen bg-zinc-950 text-white p-6">
-      <div className="max-w-4xl mx-auto space-y-6">
-        <div className="relative rounded-2xl bg-zinc-900 border border-zinc-800 p-8 shadow-xl">
-          <button
-            onClick={handleLogout}
-            className="
-              absolute right-6 top-6
-              px-5 py-2
-              rounded-xl
-              bg-red-500/90
-              hover:bg-red-500
-              text-white
-              font-medium
-              transition
-              cursor-pointer
-            "
-          >
-            Выйти
-          </button>
+    <div className="text-black">
+      <div className="mx-auto max-w-5xl space-y-6 px-4 py-8 sm:py-10">
+        <section className="bg-white relative overflow-hidden card card-border bg-base shadow-sm p-6 sm:p-8">
+          <div className="relative flex flex-col gap-6 sm:flex-row sm:items-center sm:justify-between">
+            <div className="flex items-center gap-4 sm:gap-5">
+              <div className="text-white grid h-16 w-16 shrink-0 place-items-center rounded-2xl bg-gradient-to-br from-blue-500 to-indigo-600 text-2xl font-bold uppercase shadow-lg shadow-blue-600/20">
+                {avatarLetter}
+              </div>
 
-          <div>
-            <h1 className="text-3xl font-semibold">Личный кабинет</h1>
+              <div className="min-w-0">
+                <p className="text-xs font-medium uppercase tracking-widest text-gray-400">
+                  Личный кабинет
+                </p>
 
-            <p className="mt-2 text-zinc-400">Управление профилем</p>
+                <h1 className="mt-1 truncate text-2xl font-semibold sm:text-3xl text-black">
+                  {displayName}
+                </h1>
+
+                <div className="mt-2 flex flex-wrap items-center gap-x-3 gap-y-1.5 text-sm text-gray-400">
+                  {isLoading ? (
+                    <Skeleton className="h-4 w-44" />
+                  ) : (
+                    <>
+                      {userData?.email && (
+                        <span className="truncate">{userData.email}</span>
+                      )}
+                    </>
+                  )}
+                </div>
+              </div>
+            </div>
+
+            <button
+              onClick={handleLogout}
+              disabled={logoutMutation.isPending}
+              className="btn"
+            >
+              Выйти
+            </button>
           </div>
-        </div>
+        </section>
 
-        <div className="grid md:grid-cols-2 gap-6">
-          <div className="rounded-2xl bg-zinc-900 border border-zinc-800 p-6">
-            <h2 className="text-xl font-medium mb-4">Смена пароля</h2>
+        <section className=" grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          <StatCard
+            icon={<Clock size={20} />}
+            label="Последний вход"
+            value={formatDate(userData?.last_sign_in_at)}
+            isLoading={isLoading}
+          />
+
+          <StatCard
+            icon={<Calendar size={20} />}
+            label="Дата регистрации"
+            value={formatDate(userData?.created_at)}
+            isLoading={isLoading}
+          />
+
+          <NavLink
+            to="/basket"
+            className="bg-white group rounded-2xl card-border bg-base shadow-sm p-5 transition  hover:bg-gray-100 "
+          >
+            <div className="flex items-start gap-4">
+              <span className="grid h-10 w-10 shrink-0 place-items-center rounded-xl bg-blue-500/10 text-blue-400">
+                <ShoppingCart size={20} />
+              </span>
+
+              <div className="min-w-0">
+                <p className="text-sm text-gray-400">В корзине</p>
+
+                <p className="mt-1 font-medium text-black">
+                  {cartCount} {pluralItems(cartCount)}
+                </p>
+              </div>
+
+              <span className="ml-auto text-gray-600 transition group-hover:translate-x-0.5 group-hover:text-blue-400">
+                <ArrowRight size={20} />
+              </span>
+            </div>
+          </NavLink>
+        </section>
+
+        <div className="grid gap-6 lg:grid-cols-5">
+          <section className=" bg-white rounded-2xl card-border shadow-sm p-6 sm:p-7 lg:col-span-3">
+            <div className="flex items-center gap-3 mb-4">
+              <span className="grid h-10 w-10 shrink-0 place-items-center rounded-xl bg-blue-500/10 text-blue-400">
+                <Lock size={20} />
+              </span>
+
+              <div>
+                <h2 className="text-lg font-medium">Смена пароля</h2>
+              </div>
+            </div>
 
             <form onSubmit={handlePasswordSubmit} className="space-y-3">
               <input
@@ -128,13 +195,8 @@ function UserPage() {
                 type="password"
                 placeholder="Новый пароль"
                 className="
-      w-full
-      rounded-xl
-      bg-zinc-800
-      border border-zinc-700
-      px-4 py-3
-      outline-none
-      focus:border-blue-500
+  w-full md:w-80
+     input
     "
               />
 
@@ -149,19 +211,16 @@ function UserPage() {
                   onFocus={clearPasswordMessages}
                   placeholder="Повторите пароль"
                   className="
-        w-full
-        rounded-xl
-        bg-zinc-800
-        border border-zinc-700
-        px-4 py-3
-        outline-none
-        focus:border-blue-500
-      "
+w-full md:w-80
+     input
+    "
                 />
 
                 <div className="h-4 mt-1">
                   {alertPassword ? (
-                    <p className="text-sm text-red-400">{alertPassword}</p>
+                    <p className="text-sm text-red-400">
+                      {alertPassword.message}
+                    </p>
                   ) : updatePasswordMutation.isError ? (
                     <p className="text-sm text-red-400">
                       {updatePasswordMutation.error.message}
@@ -174,50 +233,36 @@ function UserPage() {
 
               <button
                 disabled={updatePasswordMutation.isPending}
-                className="
-      w-full
-      rounded-xl
-      bg-blue-600
-      hover:bg-blue-700
-      disabled:opacity-50
-      py-3
-      font-medium
-      transition
-      cursor-pointer
-    "
+                className="btn btn-block md:w-auto md:min-w-44"
               >
                 {updatePasswordMutation.isPending
                   ? "Сохраняем..."
                   : "Изменить пароль"}
               </button>
             </form>
-          </div>
-        </div>
-
-        <div className="rounded-2xl bg-zinc-900 border border-zinc-800 p-6">
-          <h2 className="text-xl font-medium mb-5">История</h2>
-
-          <div className="overflow-x-auto">
-            <table className="w-full text-left">
-              <tbody className="text-zinc-300">
-                <tr className="border-b border-zinc-800">
-                  <td>Последний вход</td>
-                  <td className="py-3">
-                    {formatDate(userData?.last_sign_in_at)}
-                  </td>
-                </tr>
-
-                <tr className="border-b border-zinc-800">
-                  <td>Дата регистрации</td>
-                  <td className="py-3">{formatDate(userData?.created_at)}</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
+          </section>
         </div>
       </div>
     </div>
   );
+}
+
+function Skeleton({ className = "" }) {
+  return (
+    <span
+      className={`block animate-pulse rounded bg-gray-800 ${className}`}
+      aria-hidden="true"
+    />
+  );
+}
+
+function pluralItems(count) {
+  const mod10 = count % 10;
+  const mod100 = count % 100;
+
+  if (mod10 === 1 && mod100 !== 11) return "товар";
+  if (mod10 >= 2 && mod10 <= 4 && (mod100 < 12 || mod100 > 14)) return "товара";
+  return "товаров";
 }
 
 export { UserPage };

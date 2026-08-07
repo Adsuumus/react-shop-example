@@ -1,7 +1,7 @@
 import { useEffect, useContext, useState } from "react";
-import { ShopContext } from "../context";
-import { Shop } from "../components";
-import { searchAPI } from "../api/index.js";
+import { ShopContext } from "@/context";
+import { Shop } from "@/components";
+import { searchAPI } from "@/api";
 import { useSearchParams } from "react-router-dom";
 
 function SearchPage() {

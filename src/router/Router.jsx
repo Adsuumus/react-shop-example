@@ -9,7 +9,7 @@ import {
   Home,
   UserPage,
   RegisterPage,
-  Basket,
+  BasketPage,
   SearchPage,
 } from "../pages";
 
@@ -22,11 +22,11 @@ const router = createBrowserRouter(
         { index: true, element: <Home /> },
         { path: "about", element: <About /> },
         { path: "contact", element: <Contact /> },
-        { path: "/product/:id", element: <ItemPage /> },
+        { path: "product/:id", element: <ItemPage /> },
         { path: "login", element: <LoginPage /> },
         { path: "registration", element: <RegisterPage /> },
         { path: "profile", element: <UserPage /> },
-        { path: "basket", element: <Basket /> },
+        { path: "basket", element: <BasketPage /> },
         { path: "search", element: <SearchPage /> },
         { path: "*", element: <NotFound /> },
       ],

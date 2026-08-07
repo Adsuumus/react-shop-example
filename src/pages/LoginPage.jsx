@@ -1,8 +1,8 @@
 import { useState, useContext } from "react";
-import { useLogin } from "../hooks/useAuthMutations";
+import { useLogin } from "@/hooks/useAuthMutations";
 import { useNavigate } from "react-router-dom";
 import { NavLink } from "react-router-dom";
-import { ShopContext } from "../context";
+import { ShopContext } from "@/context";
 
 function LoginPage() {
   const [username, setUsername] = useState("");
@@ -25,16 +25,21 @@ function LoginPage() {
   };
 
   return (
-    <div className="h-screen bg-gray-900 flex items-center justify-center p-4">
-      <div className="bg-gray-800 rounded-xl p-6 w-full max-w-sm">
-        <h1 className="text-2xl font-bold text-white text-center mb-6">Вход</h1>
+    <div className="flex-1 flex items-center justify-center px-4">
+      <div className="w-full max-w-sm rounded-xl bg-white p-6 shadow-lg border border-gray-200">
+        <h1 className="mb-6 text-center text-2xl font-bold text-gray-900">
+          Вход
+        </h1>
 
         <form className="space-y-3" onSubmit={handleSubmit}>
           <input
             placeholder="Логин"
             value={username}
             type="text"
-            className="w-full px-4 py-2 bg-gray-700 rounded-lg text-white placeholder-gray-400 border border-gray-600 focus:outline-none focus:ring-2 focus:ring-blue-500"
+            className="
+          w-full
+         input
+        "
             onChange={(e) => setUsername(e.target.value)}
           />
 
@@ -43,13 +48,16 @@ function LoginPage() {
               type="password"
               placeholder="Пароль"
               value={password}
-              className="w-full px-4 py-2 bg-gray-700 rounded-lg text-white placeholder-gray-400 border border-gray-600 focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="
+            w-full
+           input
+          "
               onChange={(e) => setPassword(e.target.value)}
             />
 
-            <div className="h-4 mt-1">
+            <div className="mt-1 h-4">
               {loginMutation.isError && (
-                <p className="text-sm text-red-400">
+                <p className="text-sm text-red-500">
                   {loginMutation.error.message}
                 </p>
               )}
@@ -58,15 +66,18 @@ function LoginPage() {
 
           <button
             type="submit"
-            className="cursor-pointer w-full py-2 bg-blue-600 hover:bg-blue-700 rounded-lg text-white font-medium transition"
+            className="
+          w-full
+         btn
+        "
           >
             Войти
           </button>
 
-          <p className="mt-4 text-center text-sm text-gray-400">
+          <p className="mt-4 text-center text-sm text-gray-500">
             <NavLink
               to="/registration"
-              className="text-blue-400 hover:underline"
+              className="text-blue-600 hover:underline"
             >
               Зарегистрироваться
             </NavLink>

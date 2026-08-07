@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 
-function SearchForm() {
+function SearchForm({ className }) {
   const [query, setQuery] = useState("");
   const navigate = useNavigate();
 
@@ -22,33 +22,33 @@ function SearchForm() {
   }, [location.pathname]);
 
   return (
-    <form onSubmit={handleSubmit} className="relative">
-      <input
-        type="text"
-        value={query}
-        onChange={(e) => setQuery(e.target.value)}
-        placeholder="Поиск товаров"
-        className="w-full px-4 py-2 bg-gray-800 text-gray-200 placeholder-gray-400 rounded-lg border border-gray-700 focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition"
-      />
-
-      <button
-        type="submit"
-        className="absolute right-0 top-0 h-full w-10 cursor-pointer"
-      >
+    <form onSubmit={handleSubmit} className={`relative ${className} w-full`}>
+      <label className="input input-bordered w-full flex items-center gap-2">
         <svg
-          className="w-5 h-5 text-gray-400 mx-auto"
-          fill="none"
-          stroke="currentColor"
+          className="h-[1em] opacity-50"
+          xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 24 24"
         >
-          <path
-            strokeLinecap="round"
+          <g
             strokeLinejoin="round"
-            strokeWidth={2}
-            d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
-          />
+            strokeLinecap="round"
+            strokeWidth="2.5"
+            fill="none"
+            stroke="currentColor"
+          >
+            <circle cx="11" cy="11" r="8"></circle>
+            <path d="m21 21-4.3-4.3"></path>
+          </g>
         </svg>
-      </button>
+
+        <input
+          type="search"
+          value={query}
+          onChange={(e) => setQuery(e.target.value)}
+          placeholder="Поиск товаров"
+          className="grow"
+        />
+      </label>
     </form>
   );
 }

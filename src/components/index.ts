@@ -1,5 +1,5 @@
-export { Basket } from "./features/Basket/Basket"
-export { BasketItem } from "./features/Basket/BasketItem"
+export { Basket } from "./features/Basket/PopupBasket"
+export { PopupBasketCard } from "./cards/PopupBasketCard"
 export { Cart } from "./features/Basket/Cart"
 export { Shop } from "./features/Shop"
 export { Header} from './common/Header'

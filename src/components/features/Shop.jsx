@@ -1,4 +1,4 @@
-import { Item } from "./Item";
+import { ShopItem } from "../cards/ShopItem";
 import { StoreSkeleton } from "./StoreSkeleton";
 import { Pagination } from "./Pagination";
 
@@ -22,7 +22,7 @@ function Shop({
         <>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {goods.map((item) => (
-              <Item key={item.id} {...item} />
+              <ShopItem key={item.id} {...item} />
             ))}
           </div>
 

@@ -1,4 +1,4 @@
-import { clearAuth } from "../utils/auth";
+import { clearAuth } from "@/utils/auth";
 
 export const handleAuthError = (error) => {
   if (error.response?.status === 401) {
