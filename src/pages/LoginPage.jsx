@@ -65,13 +65,18 @@ function LoginPage() {
           </div>
 
           <button
+            disabled={loginMutation.isPending}
             type="submit"
             className="
           w-full
          btn
         "
           >
-            Войти
+            {loginMutation.isPending ? (
+              <span className="loading loading-spinner"></span>
+            ) : (
+              "Вход"
+            )}
           </button>
 
           <p className="mt-4 text-center text-sm text-gray-500">

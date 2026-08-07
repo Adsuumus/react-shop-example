@@ -235,9 +235,11 @@ w-full md:w-80
                 disabled={updatePasswordMutation.isPending}
                 className="btn btn-block md:w-auto md:min-w-44"
               >
-                {updatePasswordMutation.isPending
-                  ? "Сохраняем..."
-                  : "Изменить пароль"}
+                {updatePasswordMutation.isPending ? (
+                  <span className="loading loading-spinner"></span>
+                ) : (
+                  "Изменить пароль"
+                )}
               </button>
             </form>
           </section>

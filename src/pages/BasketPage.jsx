@@ -1,14 +1,36 @@
-import { useContext } from "react";
-import { ShopContext } from "@/context";
+import { useContext, useState, useEffect } from "react";
 
+import { ShopContext } from "@/context";
+import { NavLink } from "react-router-dom";
 import { formatPrice } from "@/utils/formatters";
 import { BasketCard } from "../components/cards/BasketCard";
 
 function BasketPage() {
   const { order } = useContext(ShopContext);
+  const [delay, setDelay] = useState(false);
+  const [alertMoney, setAlertMoney] = useState(false);
 
   const totalPrice = order.reduce((sum, el) => sum + el.price * el.quantity, 0);
   const totalCount = order.reduce((sum, el) => sum + el.quantity, 0);
+
+  function handleClick() {
+    setDelay(true);
+
+    setTimeout(() => {
+      setDelay(false);
+      setAlertMoney(true);
+    }, 2000);
+  }
+
+  useEffect(() => {
+    if (!alertMoney) return;
+
+    const timer = setTimeout(() => {
+      setAlertMoney(false);
+    }, 2000);
+
+    return () => clearTimeout(timer);
+  }, [alertMoney]);
 
   if (!order.length) {
     return (
@@ -19,7 +41,10 @@ function BasketPage() {
           </h1>
 
           <p className="mt-2 text-neutral-500">
-            Добавьте товары, чтобы оформить заказ
+            <NavLink to="/" className="link">
+              Добавьте товары
+            </NavLink>
+            , чтобы оформить заказ
           </p>
         </div>
       </div>
@@ -37,7 +62,7 @@ function BasketPage() {
       <div className="grid items-start gap-8 lg:grid-cols-[1fr_380px]">
         <ul className="space-y-4">
           {order.map((item) => (
-            <BasketCard item={item} />
+            <BasketCard key={item.id} item={item} />
           ))}
         </ul>
 
@@ -62,12 +87,25 @@ function BasketPage() {
             </span>
           </div>
 
-          <button type="button" className="mt-6 btn btn-block">
-            Оформить заказ
+          <button
+            onClick={handleClick}
+            type="button"
+            className="mt-6 btn btn-block"
+            disabled={delay}
+          >
+            {delay ? (
+              <span className="loading loading-spinner"></span>
+            ) : (
+              "Оформить заказ"
+            )}
           </button>
 
           <p className="mt-4 text-center text-xs text-neutral-400">
-            Нажимая кнопку, вы соглашаетесь с условиями оферты
+            {alertMoney ? (
+              <span className="text-red-500">Недостаточно средств</span>
+            ) : (
+              "Нажимая кнопку, вы соглашаетесь с условиями"
+            )}
           </p>
         </aside>
       </div>
